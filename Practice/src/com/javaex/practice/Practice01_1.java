@@ -56,13 +56,16 @@ public class Practice01_1 {
 	private static void p5() {
 		System.out.println("숫자를 입력하세요");
 		Scanner sc = new Scanner(System.in);
-		int n = 0;
+		int max = 0;
 		for (int i = 0; i < 6; ++i) {
+			int tmp;
 			System.out.printf("숫자: ");
-			int tmp = sc.nextInt();
-			n += tmp;			
+			tmp = sc.nextInt();
+			if (max < tmp)
+				max = tmp;
+					
 		}
-		System.out.println("최대값은 " + n + "입니다.");
+		System.out.println("최대값은 " + max + "입니다.");
 		sc.close();
 	}
 
