@@ -19,4 +19,8 @@ public class ColorPoint extends Point {
 		// 부모의 메서드 호출
 //		super.draw(bDraw);
 	}
+	
+	public void childsMethod() {
+		System.out.println("children's Method");
+	}
 }
