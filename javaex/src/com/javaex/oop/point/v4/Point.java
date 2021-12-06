@@ -1,11 +1,11 @@
 package com.javaex.oop.point.v4;
 
-// v1. 필드, getter/setter
+// v4. 상속
 public class Point {
-	private int x;
-	private int y;
+	protected int x;
+	protected int y;
 	
-	public Point() {}
+//	public Point() {}
 	
 	public Point(int x, int y) {
 		this.x = x;
