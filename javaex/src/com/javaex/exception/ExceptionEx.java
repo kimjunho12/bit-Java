@@ -1,13 +1,39 @@
 package com.javaex.exception;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ExceptionEx {
 
 	public static void main(String[] args) {
-		arithExceptionEx();
+//		arithExceptionEx();
+		throwExceptEx();
+	}
+	
+	private static void throwExceptEx() {
+		ThrowsExcept except = new ThrowsExcept();
+		
+		try {
+			except.executeRuntimeExcept();
+			except.executeExcept();
+		} catch (RuntimeException e) {
+			System.err.println(e.getMessage());			
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+		}
 
+		// 사용자 정의 예외 사용
+		try {
+			System.out.println(except.divide(100, 0));
+		} catch (CustomArithException e) {
+			System.err.println(e.getMessage());
+			// 예외 상황 확인
+			System.err.println("나누어지는 수:" + e.getNum1());
+			System.err.println("나누는 수:" + e.getNum2());
+		}
+		
+		System.out.println("예외 처리 완료");
 	}
 
 	private static void arithExceptionEx() {
