@@ -10,6 +10,14 @@ public class BoxApp {
 		StrBox sBox = new StrBox();
 		sBox.setContent("String");
 		System.out.println("StrBox : " + sBox.getContent());
+		
+		ObjBox oBox = new ObjBox();
+		oBox.setContent(10);
+		oBox.setContent("String");
+		
+		String value = (String) oBox.getContent();
+		System.out.println("content : " + value);
+//		int iValue = (Integer) oBox.getContent();
 	}
 
 }
