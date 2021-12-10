@@ -1,6 +1,6 @@
-package com.ds.practice.test;
+package com.ds.practice.test.innerclass;
 
-import com.ds.practice.test.Outter.Inner;
+import com.ds.practice.test.innerclass.Outter.Inner;
 
 class Outter {
 	
