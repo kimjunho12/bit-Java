@@ -37,6 +37,7 @@ public class StainAlg {
 			}
 		}
 		System.out.println((int) Math.pow(2, a) * b);
+		sc.close();
 	}
 
 }

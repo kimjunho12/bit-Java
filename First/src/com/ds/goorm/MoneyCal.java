@@ -25,7 +25,7 @@ public class MoneyCal {
 			result += i;
 		}
 		System.out.println(result);
-		
+		sc.close();
 	}
 
 }

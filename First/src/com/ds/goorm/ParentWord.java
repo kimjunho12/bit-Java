@@ -16,6 +16,7 @@ public class ParentWord {
 		}
 
 		System.out.println(isContain ? "YES" : "NO");
+		sc.close();
 	}
 
 }
