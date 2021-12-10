@@ -96,7 +96,7 @@ public class Score {
 			System.out.println("정보가 없습니다.");
 	}
 
-	public static <T> Score remove(T students){
+	public static <T> Score getRemoveItem(T students){
 		String inputName = getInputName();
 		Iterator<Score> it = getIterator(students);
 		
