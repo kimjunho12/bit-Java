@@ -1,12 +1,20 @@
-package com.ds.practice;
+package com.ds.practice.scoring;
 
 import java.util.Scanner;
+import java.util.Set;
 
 /*
  * 성적처리프로그램
  * 1. 입력 ( 이름, 국, 영, 수 )
  * 2. 검색 ( 이름검색, 평균검색 (50점이상) (평균이 50점 이상인 사람 출력) )
  * 3. 출력 ( 전체출력 )
+ */
+
+/*
+ * 1. 삽입 (이름, 국, 영, 수)
+ * 2. 검색 (이름, 성적)
+ * 3. 삭제
+ * 4. 출력
  */
 
 public class First {
