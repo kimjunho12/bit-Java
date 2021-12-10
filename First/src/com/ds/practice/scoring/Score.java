@@ -101,7 +101,7 @@ public class Score {
 		Iterator<Score> it = getIterator(students);
 		
 		boolean searchCheck = false;
-		Score result = null;
+		Score result = new Score();
 		while(it.hasNext()) {
 			Score s = it.next();
 			if (s.getName().equals(inputName)) {
