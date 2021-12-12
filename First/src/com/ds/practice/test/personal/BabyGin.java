@@ -1,66 +1,70 @@
 package com.ds.practice.test.personal;
 
-import java.util.Iterator;
-import java.util.Vector;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class BabyGin {
     public static void main(String[] args) {
-        Vector<Integer> card = new Vector<>();
-
-        for (int i = 0; i < 6; ++i){
-            card.add((int) (Math.random()*9));
-        }
-
-        card.sort(null);
-
-        System.out.println(card.toString());
-        isRun(card);
+        Scanner sc = new Scanner(System.in);
+        int choose = 1;
         
+        while (choose == 1) {            
+            int[] card = shuffleCard();
+
+            Arrays.sort(card);
+
+            System.out.println(Arrays.toString(card));
+            
+            play(card);
+            System.out.print("Play the game again? <1-yes/2-no>: "); choose = sc.nextInt();
+        }
+        sc.close();
     }
 
-    private static boolean isRun(Vector<Integer> v) {
-        boolean leftResult = true;
-        boolean rightResult = true;
-        char[] arr = v.toString().toCharArray();
-        for (int i = 0; i < 2; ++i){
-            if (arr[i] + 1 == arr[i+1]){
-                leftResult = leftResult && true;
-            } else {
-                leftResult = leftResult && false;
-            }
-        }
-        for (int i = 3; i < 5; ++i){
-            if (arr[i] + 1 == arr[i+1]){
-                rightResult = rightResult && true;
-            } else {
-                rightResult = rightResult && false;
-            }
-        }
+    private static int[] shuffleCard() {
+        int[] card = new int[6];
 
-        if (leftResult && rightResult){
-            isBabyGin();
-        } else if (leftResult) {
-            System.out.println("is Left Run");
-            // if (leftResult && isTriplete())
-                // isBabyGin();
-        } else if (rightResult) {
-            System.out.println("is Left Run");
-            // if (rightResult && isTriplete())
-                // isBabyGin();
-        } else
-            return false;
-        return (leftResult || rightResult);
+        System.out.print("Input 6 Numbers: ");
+
+        for (int i = 0; i < 6; ++i) {
+            card[i] = (int) (Math.random() * 9);
+            System.out.print(card[i]);
+        }
+        System.out.println();
+
+        return card;
     }
-    
-    private static boolean isTriplete() {
-        
+
+    private static boolean isRun(int[] arr, int idx) {
+        for (int i = idx; i < idx + 2; ++i){
+            if (arr[i] + 1 != arr[i+1])
+                return false;
+        }
+        return true;
+    }
+
+    private static boolean isTriplete(int[] arr, int idx) {
+        for (int i = idx; i < idx + 2; ++i){
+            if (arr[i] != arr[i+1])
+                return false;
+        }
+        return true;
+    }
+
+    private static boolean isBabyGin(int[] arr) {
+        if (isRun(arr, 0) || isTriplete(arr, 0)) {
+            if (isRun(arr, 3))
+                return true;
+            if (isTriplete(arr, 3))
+                return true;
+        }
         return false;
     }
 
-    private static boolean isBabyGin() {
-        System.out.println("Baby Gin !!!");
-        
-        
-        return false;
+    private static void play(int[] arr) {
+        if (isBabyGin(arr))
+            System.out.println("Baby gin !!!");
+        else
+            System.out.println("Lose");
     }
 }
