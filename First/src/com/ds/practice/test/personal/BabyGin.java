@@ -6,18 +6,16 @@ import java.util.Scanner;
 public class BabyGin {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int choose = 1;
+        int choose;
         
-        while (choose == 1) {            
+        do {            
             int[] card = shuffleCard();
 
             Arrays.sort(card);
-
-            System.out.println(Arrays.toString(card));
             
             play(card);
             System.out.print("Play the game again? <1-yes/2-no>: "); choose = sc.nextInt();
-        }
+        } while (choose != 2);
         sc.close();
     }
 
