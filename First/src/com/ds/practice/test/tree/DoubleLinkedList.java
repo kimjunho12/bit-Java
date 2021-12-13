@@ -21,7 +21,7 @@ public class DoubleLinkedList {
 
         @Override
         public String toString() {
-            return String.valueOf(this.data);
+            return "[" + data + "]";
         }
     }
 
@@ -35,13 +35,13 @@ public class DoubleLinkedList {
 
     private Node getNode(int idx) {
         Node x;
-        if (idx < size / 2) { // 찾으려는 위치가 크기의 절반 미만 일때
-            x = head; // 앞쪽부터 탐색
+        if (idx < size / 2) {           // 찾으려는 위치가 크기의 절반 미만 일때
+            x = head;                   // 앞쪽부터 탐색
             for (int i = 0; i < idx; ++i) {
                 x = x.next;
             }
-        } else { // 찾으려는 위치가 크기의 절반 이상 일때
-            x = tail; // 뒤쪽부터 탐색
+        } else {                        // 찾으려는 위치가 크기의 절반 이상 일때
+            x = tail;                   // 뒤쪽부터 탐색
             for (int i = size - 1; i > idx; --i) {
                 x = x.pre;
             }
@@ -87,21 +87,21 @@ public class DoubleLinkedList {
             return;
         }
 
-        Node preNode = getNode(idx - 1); // 넣으려는 위치 직전의 노드
-        Node nxtNode = preNode.next; // 넣으려는 위치 다음의 노드
+        Node preNode = getNode(idx - 1);    // 넣으려는 위치 직전의 노드
+        Node nxtNode = preNode.next;        // 넣으려는 위치 다음의 노드
 
-        if (nxtNode == null) { // 다음 노드가 없을 경우
-            append(obj); // 마지막에 넣는 경우임으로 append
+        if (nxtNode == null) {  // 다음 노드가 없을 경우
+            append(obj);        // 마지막에 넣는 경우임으로 append
             return;
         }
 
         Node n = new Node(obj);
 
-        preNode.next = n; // 이전 노드 뒤 새노드 추가
-        n.pre = preNode; // 새노드 앞 이전노드 저장
+        preNode.next = n;   // 이전 노드 뒤 새노드 추가
+        n.pre = preNode;    // 새노드 앞 이전노드 저장
 
-        nxtNode.pre = n; // 다음 노드 앞 새노드 추가
-        n.next = nxtNode; // 새노드 뒤 다음노드 저장
+        nxtNode.pre = n;    // 다음 노드 앞 새노드 추가
+        n.next = nxtNode;   // 새노드 뒤 다음노드 저장
 
         size++;
     }
@@ -131,4 +131,30 @@ public class DoubleLinkedList {
         return result;
     }
 
+    public int indexOf(Object obj) {
+        Node tmp = head;
+
+        int idx = 0;
+        while (!tmp.data.equals(obj)) {
+            tmp = tmp.next;
+            idx++;
+            if (tmp == null) {
+                return -1;
+            }
+        }
+        return idx;
+    }
+
+    public boolean isEmpty() {
+        return size > 0 ? false : true;
+    }
+
+    public void disp() {
+        Node all = head;
+        for (int i = 0; i < size; ++i){
+            System.out.print(all.toString());
+            all = all.next;
+        }
+        System.out.println();
+    }
 }
