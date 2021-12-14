@@ -34,19 +34,19 @@ public class DoubleLinkedList {
     }
 
     private Node getNode(int idx) {
-        Node x;
+        Node cur;
         if (idx < size / 2) {           // 찾으려는 위치가 크기의 절반 미만 일때
-            x = head;                   // 앞쪽부터 탐색
+            cur = head;                   // 앞쪽부터 탐색
             for (int i = 0; i < idx; ++i) {
-                x = x.next;
+                cur = cur.next;
             }
         } else {                        // 찾으려는 위치가 크기의 절반 이상 일때
-            x = tail;                   // 뒤쪽부터 탐색
+            cur = tail;                   // 뒤쪽부터 탐색
             for (int i = size - 1; i > idx; --i) {
-                x = x.pre;
+                cur = cur.pre;
             }
         }
-        return x;
+        return cur;
     }
 
     public void push(Object obj) { // 가장 앞에 추가
