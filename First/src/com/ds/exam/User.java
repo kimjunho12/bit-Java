@@ -65,7 +65,7 @@ public class User extends Company{
     }
 
     public void getMyInfo() {
-        toString();
+        System.out.println(toString());
     }
 
     class Salary {
@@ -80,9 +80,9 @@ public class User extends Company{
         }
 
         Salary(int base, int incentive) {
-            this.amount = 0;
             this.base = base;
             this.incentive = incentive;
+            amount = calAmount(base, incentive, year);
         }
 
         public int getBase() {
@@ -103,6 +103,10 @@ public class User extends Company{
 
         int calAmount(int base, int incentive, int year) {
             return base + incentive * year;
+        }
+
+        void updateSalary(int base, int incentive) {
+            this.amount = calAmount(base, incentive, year);
         }
 
         @Override

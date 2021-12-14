@@ -1,9 +1,11 @@
 package com.ds.exam;
 
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+
+/**
+ * 관리자 ID와 PW 는 admin / admin 이다.
+ */
 
 public class SalaryApp {
     Admin admin = new Admin("admin", "admin");
@@ -107,7 +109,7 @@ public class SalaryApp {
                     createUser();
                     break;
                 case 3:
-                    showAllUsers();
+                    updateUser();
                     break;
                 case 4:
                     deleteUser();
@@ -115,6 +117,7 @@ public class SalaryApp {
                 case 0:
                     break ADMIN;
                 default:
+                    showAllUsers();
                     break ;
             }
             System.out.println();
@@ -145,6 +148,29 @@ public class SalaryApp {
         admin.creatUser(id, pw, name, year);
     }
 
+    private void updateUser() {
+        Scanner sc =  new Scanner(System.in);
+        System.out.print("수정할 이름을 입력 하세요.\n>> ");
+        User user = findUser(sc.next());
+        if (user == null) {
+            System.out.println("사용자 정보가 없습니다");
+            return ;
+        }
+
+        System.out.print("년차를 입력하세요 : ");
+        user.setYear(sc.nextInt());
+        System.out.print("기본급을 입력하세요 : ");
+        int base = sc.nextInt();
+        user.salary.setBase(base);
+        System.out.print("성과금을 입력하세요 : ");
+        int incentive = sc.nextInt();
+        user.salary.setIncentive(incentive);
+
+        user.salary.updateSalary(base, incentive);
+        System.out.printf("%s님의 정보가 변경 되었습니다.\n", user.name);
+        System.out.println(user.toString());
+    }
+
     private void deleteUser() {
         Scanner sc =  new Scanner(System.in);
         System.out.print("삭제할 이름을 입력 하세요.\n>> ");
@@ -160,7 +186,7 @@ public class SalaryApp {
         User cur;
         for (int i = 0; i < userList.size(); ++i){
             cur = userList.get(i);
-            if (cur.id.equals(name))
+            if (cur.name.equals(name))
                 return cur;
         }
         return null;
