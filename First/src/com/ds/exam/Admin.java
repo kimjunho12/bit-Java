@@ -31,7 +31,9 @@ public class Admin extends Company {
         userList.remove(user);
     }
 
-    public void setInfo(){}
+    public void setInfo(User user) {
+        
+    }
 
     public void disp() {
         Iterator<User> it = userList.iterator();
