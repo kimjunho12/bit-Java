@@ -22,13 +22,14 @@ public class SelectImage {
 		String passwd = "1234";
 		try (Connection conn = DriverManager.getConnection(url, user, passwd);
 				Scanner scan = new Scanner(System.in);
-				PreparedStatement pstmt = conn.prepareStatement("SELECT filename, filecontent FROM imgtest WHERE filename = ?");) {
+				PreparedStatement pstmt = conn
+						.prepareStatement("SELECT filename, filecontent FROM imgtest WHERE filename = ?");) {
 			System.out.print("읽으려는 이미지의 파일명(확장자제외)을 입력하세요 : ");
 			String name = scan.nextLine();
 			pstmt.setString(1, name);
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
-				File imgFile = new File("c:/Temp/"+rs.getString("filename")+"_new.png");
+				File imgFile = new File("c:/Temp/" + rs.getString("filename") + "_new.png");
 				InputStream is = rs.getBinaryStream("filecontent");
 				FileOutputStream fos = new FileOutputStream(imgFile);
 				byte[] b = new byte[2048];
@@ -37,6 +38,7 @@ public class SelectImage {
 					fos.write(b, 0, n);
 				}
 				fos.close();
+				rs.close();
 			} else {
 				System.out.print(name + "이라는 파일명으로 저장된 이미지가 존재하지 않습니다. ");
 			}
