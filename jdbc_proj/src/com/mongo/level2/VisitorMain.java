@@ -5,12 +5,6 @@ import java.util.Scanner;
 
 public class VisitorMain {
 	public static void main(String[] args) {
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-		} catch (ClassNotFoundException cnfe) {
-			System.out.println("해당 클래스를 찾을 수 없습니다." + cnfe.getMessage());
-			return;
-		}
 		VisitorCRUD crud = new VisitorCRUD();
 		Scanner scan = new Scanner(System.in);
 		t: while (true) {
