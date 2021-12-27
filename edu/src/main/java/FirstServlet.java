@@ -15,6 +15,9 @@ public class FirstServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		out.print("<h1>FirstServlet 수행완료</h1>");
+		out.print("<hr>");
+		out.print("<h2>요청방식 : " + request.getMethod() + "<h2>");
+		out.print("<h2>반가워요... : " + request.getParameter("name") + "님!!<h2>");
 		out.close();
 		System.out.println("서블릿에서의 표준 출력은 어디로 나갈까요?");
 		
