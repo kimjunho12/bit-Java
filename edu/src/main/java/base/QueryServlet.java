@@ -24,6 +24,7 @@ public class QueryServlet extends HttpServlet {
 		for(int i=0; i < p3.length; i++)
 			out.print("<li>p3["+i+"] : "+ p3[i] +"</li>");
 		out.print("</ul>");
+		out.print("<a href='/edu/htmlexam/queryservlettest.html'>입력화면으로</a>");
 		out.close();		
 	}
 }
