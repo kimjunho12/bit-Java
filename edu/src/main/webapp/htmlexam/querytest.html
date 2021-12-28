@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	    <form method="GET" 
+	    action="http://localhost:8000/edu/querytest">
+		이름 : <input name="stname" value="듀크" required><br>
+		암호 : <input type="password" name="pwd"><br>
+		나이 : <input type="number" name="age"><br>
+		성별 : <input type="radio" name="gender" value="남자">남자
+		<input type="radio" name="gender" value="여자">여자
+		<br>
+		
+		취미 : 
+		피아노 <input type="checkbox" name="hobby" value="피아노">
+		수영 <input type="checkbox" name="hobby" value="수영">
+		독서 <input type="checkbox" name="hobby" value="독서">
+		게임 <input type="checkbox" name="hobby" value="게임">
+		<br>
+	
+		좋아하는 색 : 
+		<select name="color">
+		    <option value=""></option>
+			<option value="빨강색">RED</option>
+			<option value="파랑색">BLUE</option>
+			<option value="노랑색">YELLOW</option>
+		</select>
+		<br>
+		
+		좋아하는 음식 :
+		<br> 
+		<select name="food" size="4" multiple>
+			<option value="라면">라면</option>
+			<option value="냉면">냉면</option>
+			<option value="짜장면">짜장면</option>
+			<option value="햄버거">햄버거</option>
+			<option value="닭강정">닭강정</option>
+			<option value="육회">육회</option>
+		</select>
+		<br>
+		
+		의견 : 
+		<br>
+		<textarea name="op" rows="10" cols="50"></textarea><br>
+		
+		<input type="hidden" name="h_1" value="-ㅅ-">
+		<input type="hidden" name="h_2" value="=ㅅ="> 
+		
+		<input type="submit" value="보내기">
+		<input type="reset" value="다시작성하기">
+	</form>
+</body>
+</html>

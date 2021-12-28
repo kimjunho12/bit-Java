@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>서블릿을 요청하는 다양한 방법</h1>
+<hr>
+<a href="/edu/getpost?name=듀크">하이퍼링크로 요청</a>
+<hr>
+<form method="get" action="/edu/getpost">
+<input type="text" placeholder="이름을입력하세요" name="name" >
+<input type="submit"  value="GET방식요청">
+</form>
+<hr>
+<form method="post" action="/edu/getpost">
+<input type="text" placeholder="이름을입력하세요" name="name" >
+<input type="submit"  value="POST방식요청">
+</form>
+</body>
+</html>
+
+
