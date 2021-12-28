@@ -7,7 +7,7 @@
 </head>
 <body>
 	    <form method="GET" 
-	    action="http://localhost:8000/edu/querytest">
+	    action="http://localhost:8080/edu/querytest">
 		이름 : <input name="stname" value="듀크" required><br>
 		암호 : <input type="password" name="pwd"><br>
 		나이 : <input type="number" name="age"><br>
@@ -47,8 +47,8 @@
 		<br>
 		<textarea name="op" rows="10" cols="50"></textarea><br>
 		
-		<input type="hidden" name="h_1" value="-ㅅ-">
-		<input type="hidden" name="h_2" value="=ㅅ="> 
+		<input type="hidden" name="h_1" value="hidden으로 보낸 첫 번째 내용">
+		<input type="hidden" name="h_2" value="hidden으로 보낸 두 번째 내용"> 
 		
 		<input type="submit" value="보내기">
 		<input type="reset" value="다시작성하기">
