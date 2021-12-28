@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자연휴양림 예약</title>
+</head>
+<body>
+<h1>자연휴양림 예약 서비스</h1><hr>
+<form method="POST" action="/edu/reservation">
+	예약자명 : <input name="rname" required><br>
+	예약암호 : <input name="rpasswd" type="password" required><br>
+	휴양림선택 : 산음<input name="rtype" type="radio" value="산음"> 중미산<input name="rtype" type="radio" value="중미산"> 유명산<input name="rtype" type="radio" value="유명산"> 아세산<input name="rtype" type="radio" value="아세산"><br>
+	추가요청 : 바베큐<input name="roption" type="checkbox" value="바베큐"> 수영장<input name="roption" type="checkbox" value="수영장"> 낚시<input name="roption" type="checkbox" value="낚시"> 조식<input name="roption" type="checkbox" value="조식"><br> 
+	예약날짜 : <input name="rdate" type="date"><br> <hr>
+	<input type="submit" value="보내기">
+	<input type="reset" value="다시 작성하기">
+</form>
+
+</body>
+</html>
