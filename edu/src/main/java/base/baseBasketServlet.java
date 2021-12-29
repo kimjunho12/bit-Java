@@ -21,6 +21,6 @@ public class baseBasketServlet extends HttpServlet {
 		String pid = request.getParameter("pid");
 		out.printf("<h1>선택한 상품 : %s</h1>", pid);
 		out.printf("<img src='/edu/images/%d.jpg'><hr>", Integer.valueOf(pid.substring(pid.length()-3, pid.length())));
-		out.print("<a href='/edu/htmlexam/productlog.html'>상품 선택 화면</a>");
+		out.printf("<a href='%s'>상품 선택 화면</a>", request.getHeader("referer"));
 	}
 }
