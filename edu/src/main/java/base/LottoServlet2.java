@@ -21,6 +21,7 @@ public class LottoServlet2 extends HttpServlet {
 		if(session.getAttribute("cnt") == null)
 			session.setAttribute("cnt", new Cnt(0, false)); // 데이터를 저장할 방을 등록 (저장할 값은 객체로 저장해야함)
 		Cnt cntVO = (Cnt) session.getAttribute("cnt");
+		System.out.println("응모 횟수 : " + ++cntVO.cnt + " 성공여부 : " + cntVO.isChecked);
 		
 		if (cntVO.cnt > 3 || cntVO.isChecked) {
 			rd = request.getRequestDispatcher("/htmlexam/impossible.html");
@@ -40,7 +41,6 @@ public class LottoServlet2 extends HttpServlet {
 			rd = request.getRequestDispatcher("/htmlexam/fail.html");
 		}
 		rd.forward(request, response);
-		System.out.println("응모 횟수 : " + ++cntVO.cnt + " 성공여부 : " + cntVO.isChecked);
 	}
 	
 	class Cnt {
