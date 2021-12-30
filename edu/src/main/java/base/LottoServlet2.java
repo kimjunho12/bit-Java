@@ -30,7 +30,7 @@ public class LottoServlet2 extends HttpServlet {
 			return ;
 		}	
 		
-		int rNum = (int) (Math.random()*5 + 1);
+		int rNum = (int) (Math.random()*6 + 1);
 		int gNum = Integer.valueOf(request.getParameter("num"));
 		System.out.printf("전달 된 값 : %d, 추출된 값 : %d\n", gNum, rNum);
 		

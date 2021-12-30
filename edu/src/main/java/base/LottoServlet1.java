@@ -14,7 +14,7 @@ public class LottoServlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int rNum = (int) (Math.random()*5 + 1);
+		int rNum = (int) (Math.random()*6 + 1);
 		int gNum = Integer.valueOf(request.getParameter("num"));
 		System.out.printf("전달 된 값 : %d, 추출된 값 : %d\n", gNum, rNum);
 		
