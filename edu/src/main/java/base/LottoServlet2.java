@@ -24,7 +24,7 @@ public class LottoServlet2 extends HttpServlet {
 		System.out.println("응모 횟수 : " + ++cntVO.cnt + " 성공여부 : " + cntVO.isChecked);
 		
 		if (cntVO.cnt > 3 || cntVO.isChecked) {
-			rd = request.getRequestDispatcher("/htmlexam/impossible.html");
+			rd = request.getRequestDispatcher("/jspsrc/impossible.jsp");
 			rd.forward(request, response);
 			System.out.println("Forwarding to impossible.html");
 			return ;
@@ -35,10 +35,10 @@ public class LottoServlet2 extends HttpServlet {
 		System.out.printf("전달 된 값 : %d, 추출된 값 : %d\n", gNum, rNum);
 		
 		if(rNum == gNum) {
-			rd = request.getRequestDispatcher("/htmlexam/success.html");
+			rd = request.getRequestDispatcher("/jspsrc/success.jsp");
 			cntVO.isChecked = true;
 		} else {
-			rd = request.getRequestDispatcher("/htmlexam/fail.html");
+			rd = request.getRequestDispatcher("/jspsrc/fail.jsp");
 		}
 		rd.forward(request, response);
 	}
