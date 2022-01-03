@@ -1,0 +1,5 @@
+<%@  page pageEncoding="UTF-8"  %>
+<% int num = 1000; %>
+<div>
+part2.jspf 의 내용  - 1000 * 2 의 연산 결과 : <%= num * 2 %>
+</div>
