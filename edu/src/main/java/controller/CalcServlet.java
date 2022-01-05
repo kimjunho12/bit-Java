@@ -24,7 +24,7 @@ public class CalcServlet extends HttpServlet {
 
 		if (op.equals("/") && r == 0) {
 			request.setAttribute("errMsg", "나눗셈 연산시 두 번째 숫자는 0일 수 없습니다!!");
-			request.getRequestDispatcher("/jspsrc/errorResult.jsp").forward(request, response);
+			request.getRequestDispatcher("/jspsrc/errorResultEL.jsp").forward(request, response);
 		} else {
 			Object result = 0;
 			try {
@@ -33,7 +33,7 @@ public class CalcServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			request.setAttribute("result", result);
-			request.getRequestDispatcher("/jspsrc/calcResult.jsp").forward(request, response);
+			request.getRequestDispatcher("/jspsrc/calcResultEL.jsp").forward(request, response);
 		}
 	}
 

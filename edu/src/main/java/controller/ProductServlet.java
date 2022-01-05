@@ -45,7 +45,7 @@ public class ProductServlet extends HttpServlet {
 		}
 		
 		session.setAttribute("prod", prod);
-		request.getRequestDispatcher("/jspsrc/productView.jsp").forward(request, response);		
+		request.getRequestDispatcher("/jspsrc/productViewEL.jsp").forward(request, response);		
 	}
 
 }

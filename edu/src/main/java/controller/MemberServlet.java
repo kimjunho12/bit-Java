@@ -34,7 +34,7 @@ public class MemberServlet extends HttpServlet {
 		mList.add(mem);
 		
 		request.setAttribute("mlist", mList);
-		request.getRequestDispatcher("/jspsrc/memberView.jsp").forward(request, response);
+		request.getRequestDispatcher("/jspsrc/memberViewEL.jsp").forward(request, response);
 	}
 	
 	private String isNull(String s) {
