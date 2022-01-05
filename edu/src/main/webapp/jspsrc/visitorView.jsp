@@ -38,10 +38,10 @@ td:nth-child(3) {
 			<td><%=vo.getWriteDate()%></td>
 			<td><%=vo.getMemo()%></td>
 			<td><a href='/edu/visitordb2?id=<%=vo.getId()%>&action=delete'>
-					<img src="edu/images/delete.png" width="30">
+					<img src="/edu/images/delete.png" width="30">
 			</a></td>
 			<td><a href='/edu/visitordb2?id=<%=vo.getId()%>&action=update'>
-					<img src="edu/images/edit.png" width="30">
+					<img src="/edu/images/edit.png" width="30">
 			</a></td>
 		</tr>
 		<%
