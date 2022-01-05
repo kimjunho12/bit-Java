@@ -74,6 +74,6 @@ public class VisitorDBServlet2 extends HttpServlet {
 		} else {
 			request.setAttribute("msg", String.format("%s님의 글의 %s에 실패했어요!!", name, word));
 		}
-		request.getRequestDispatcher("/jsp/visitorView.jsp").forward(request, response);
+		request.getRequestDispatcher("/jspsrc/visitorView.jsp").forward(request, response);
 	}
 }
