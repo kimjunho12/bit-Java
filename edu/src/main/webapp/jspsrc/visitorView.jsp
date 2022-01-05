@@ -12,6 +12,11 @@ td {
 	border-bottom: 1px dotted green;
 }
 
+#trheader {
+	text-align: center;
+	background-color: #999999;
+}
+
 tr:hover {
 	background-color: yellow;
 	font-weight: bold;
@@ -30,6 +35,13 @@ td:nth-child(3) {
 	<h2>방명록 글리스트</h2>
 	<hr>
 	<table>
+		<tr id="trheader">
+			<td><strong>작성자</strong></td>
+			<td><strong>작성일</strong></td>
+			<td><strong>내용</strong></td>
+			<td><strong>삭제</strong></td>
+			<td><strong>수정</strong></td>
+		</tr>
 		<%
 		for (VisitorVO vo : list) {
 		%>
