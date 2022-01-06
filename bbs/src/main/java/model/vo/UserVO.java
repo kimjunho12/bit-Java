@@ -1,4 +1,4 @@
-package vo;
+package model.vo;
 
 public class UserVO {
 	private int id;

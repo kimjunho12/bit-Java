@@ -1,9 +1,9 @@
-package dao;
+package model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import vo.UserVO;
+import model.vo.UserVO;
 
 public class UserDAO {
 	public void create_user(UserVO vo) {
