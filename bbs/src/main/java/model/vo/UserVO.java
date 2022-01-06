@@ -1,7 +1,7 @@
 package model.vo;
 
 public class UserVO {
-	private int id;
+	private int uid;
 	private String name;
 	private String email;
 	private String pw;
@@ -9,11 +9,11 @@ public class UserVO {
 	private String register_date;
 	private String last_date;
 	
-	public int getId() {
-		return id;
+	public int getUid() {
+		return uid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setUid(int id) {
+		this.uid = id;
 	}
 	public String getName() {
 		return name;
@@ -53,7 +53,7 @@ public class UserVO {
 	}
 	@Override
 	public String toString() {
-		return "UserVO [id=" + id + ", name=" + name + ", email=" + email + ", pw=" + pw + ", phone=" + phone
+		return "UserVO [id=" + uid + ", name=" + name + ", email=" + email + ", pw=" + pw + ", phone=" + phone
 				+ ", register_date=" + register_date + ", last_date=" + last_date + "]";
 	}	
 }
