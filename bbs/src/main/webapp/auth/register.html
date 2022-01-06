@@ -6,12 +6,12 @@
 </head>
 <body>
 	<div>
-		<form action="/board/register" method="post">
+		<form action="/bbs/register" method="post">
 			이름 : <input type="text" name="name" required="required"><br>
 			이메일 : <input type="text" name="email" required="required"><br>
 			비밀번호 : <input type="password" name="passwd" required="required"><br>
 			비밀번호 확인 : <input type="password" name="passwdv" required="required"><br>
-			전화번호 : <input type="text" name="phone"><br>
+			전화번호 : <input type="text" name="phone" maxlength='11'><br>
 			<input type="submit" value="회원 가입"><br>
 		</form>
 	</div>
