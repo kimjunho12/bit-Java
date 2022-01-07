@@ -3,7 +3,6 @@ package model.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -109,6 +108,20 @@ public class UserDAO {
 			System.err.println(vo.getName() + " 계정 수정 오류" + e.getMessage());
 		}
 		MySQL.close(conn);
+		return result;
+	}
+	
+	public boolean deleteUser(int uid) {
+		boolean result = false;
+		
+		Connection conn = MySQL.connect();
+		try (PreparedStatement pstmt = conn.prepareStatement("DELETE FROM user WHERE uid=?")){
+			pstmt.setInt(1, uid);
+			pstmt.executeUpdate();
+			result = true;
+		} catch (Exception e) {
+			System.err.println(uid + " 계정 삭제 오류" + e.getMessage());
+		}
 		return result;
 	}
 

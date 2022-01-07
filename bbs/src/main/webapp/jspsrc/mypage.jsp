@@ -17,6 +17,8 @@
 			<input type="submit" value="정보 수정"><br>
 		</form>
 	</div>
+	<br>
+	<span style="background-color: red"><a href="/bbs/mypage?action=delete_user">회원 탈퇴</a></span>
 
 </body>
 </html>
