@@ -43,9 +43,14 @@ public class LoginServlet extends HttpServlet {
 		} else {
 			out.printf("<h1>로그인 실패</h1><hr>");
 		}
-
+		out.close();
 	}
-	
-	
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		session.invalidate();
+		response.sendRedirect("/bbs/jspsrc/index.jsp");
+	}
 
 }

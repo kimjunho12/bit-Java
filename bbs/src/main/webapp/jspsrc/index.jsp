@@ -27,13 +27,12 @@ span {
 	%>
 	<div>
 		<span style="background-color: green;">게시팔</span> <input type="search">
-		<span>${ sessionScope.login_user.name }님</span> <a
-			href="/bbs/auth/login.html">로그아웃</a> <a
-			href="/bbs/auth/register.html">마이페이지</a>
+		<span>${ sessionScope.login_user.name }님</span>
+		<a href="/bbs/login">로그아웃</a>
+		<a href="/bbs/jspsrc/mypage.jsp">마이페이지</a>
 	</div>
 	<div>
 		main
-		<p><%=session.getAttribute("login_user")%></p>
 	</div>
 	<div>footer</div>
 </body>
