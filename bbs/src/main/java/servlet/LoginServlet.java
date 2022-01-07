@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.UserDAO;
 import model.vo.UserVO;
@@ -36,10 +37,15 @@ public class LoginServlet extends HttpServlet {
 		if (user != null) {
 			out.printf("<h1>%s 로그인 성공</h1><hr>", user.getName());
 			out.printf("<h1>%s 로그인 성공</h1><hr>", dao.readOneUser(user.getUid()));
+			HttpSession session = request.getSession();
+			session.setAttribute("login_user", user);
+			response.sendRedirect("/bbs/jspsrc/index.jsp");
 		} else {
 			out.printf("<h1>로그인 실패</h1><hr>");
 		}
 
 	}
+	
+	
 
 }

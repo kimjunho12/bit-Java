@@ -26,13 +26,16 @@ public class RegisterServlet extends HttpServlet {
 		user.setPw(request.getParameter("passwd"));
 		user.setPhone(request.getParameter("phone"));
 
-		UserDAO dao = new UserDAO();
-		dao.createUser(user);
-
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
-		out.printf("<h1>회원가입 성공</h1><hr>" + "<a href='/bbs/static/index.html'>홈 화면으로</a>",
-				request.getHeader("referer"));
+		
+		UserDAO dao = new UserDAO();
+		if(dao.createUser(user)) {
+			out.printf("<h1>회원가입 성공</h1><hr>" + "<a href='/bbs/static/index.html'>홈 화면으로</a>");			
+		} else {
+			out.println("<h1>회원가입 실패</h1><hr><a href='/bbs/static/index.html'>홈 화면으로</a>");
+		}
+
 	}
 
 }
