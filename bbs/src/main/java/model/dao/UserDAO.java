@@ -122,6 +122,7 @@ public class UserDAO {
 		} catch (Exception e) {
 			System.err.println(uid + " 계정 삭제 오류" + e.getMessage());
 		}
+		MySQL.close(conn);
 		return result;
 	}
 
