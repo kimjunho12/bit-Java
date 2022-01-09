@@ -34,10 +34,13 @@ span {
 	%>
 	<div>
 		<span style="background-color: green;">게시팔</span> <input type="search">
+		<span style="float: right;">
 		<span>${ sessionScope.login_user.name }님</span> <a href="/bbs/login">로그아웃</a> <a href="/bbs/jspsrc/mypage.jsp">마이페이지</a>
+		</span>
 	</div>
 	<div>
 		main
+		<a style="float: right;" href="/bbs/static/writeForm.html"><span>새 글 작성</span></a>
 		<div class="article">최신글</div>
 		<div class="article">인기글</div>
 	</div>

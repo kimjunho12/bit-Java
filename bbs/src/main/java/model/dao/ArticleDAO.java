@@ -16,7 +16,7 @@ public class ArticleDAO {
 		Connection conn = MySQL.connect();
 		try (PreparedStatement pstmt = conn
 				.prepareStatement("INSERT INTO article (writer, title, content, write_date) values (?, ?, ?, now())")) {
-			pstmt.setInt(1, vo.getArticle_id());
+			pstmt.setInt(1, vo.getWriter_id());
 			pstmt.setString(2, vo.getTitle());
 			pstmt.setString(3, vo.getContent());
 			pstmt.executeUpdate();

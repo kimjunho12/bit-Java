@@ -38,7 +38,6 @@ public class CharEncoding implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		// place your code here
-		System.out.println("한글필터 실행");
 		if (((HttpServletRequest) request).getMethod().equals("POST"))
 			request.setCharacterEncoding("UTF-8");
 		
