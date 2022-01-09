@@ -24,8 +24,8 @@ span {
 	background-color: #DDDDDD;
 	text-align: left;
 	width: 80%;
-	height: 300px;
 }
+
 td {
 	border-bottom: 1px dotted green;
 	text-align: center;
@@ -57,45 +57,65 @@ td:nth-child(3) {
 		return;
 	}
 	List<ArticleVO> aList = new ArticleDAO().readAllArticles();
+	List<ArticleVO> popList = new ArticleDAO().readPopArticles();
 	%>
 	<div>
 		<span style="background-color: green;">게시팔</span> <input type="search">
-		<span style="float: right;">
-		<span>${ sessionScope.login_user.name }님</span> <a href="/bbs/login">로그아웃</a> <a href="/bbs/jspsrc/mypage.jsp">마이페이지</a>
+		<span style="float: right;"> <span>${ sessionScope.login_user.name }님</span>
+			<a href="/bbs/login">로그아웃</a> <a href="/bbs/jspsrc/mypage.jsp">마이페이지</a>
 		</span>
 	</div>
 	<div>
-		main
-		<a style="float: right;" href="/bbs/static/writeForm.html"><span>새 글 작성</span></a>
-		<div class="article">최신글
-		<table style="width: 100%">
-		<tr id="trheader">
-			<td><strong>작성자</strong></td>
-			<td><strong>작성일</strong></td>
-			<td><strong>제목</strong></td>
-			<td><strong>조회수</strong></td>
-		</tr>
-		<%
-		for (ArticleVO vo : aList) {
-		%>
-		<tr onClick="location.href='/bbs/article?action=read&article_id=<%=vo.getArticle_id()%>'">
-			<td><%=vo.getWriter_name()%></td>
-			<td><%=vo.getWrite_date()%></td>
-			<td><%=vo.getTitle()%></td>
-			<td><%=vo.getView_cnt()%></td>
-<%-- 			<td><a href='/edu/visitordb2?id=<%=vo.getId()%>&action=delete'>
-					<img src="/edu/images/delete.png" width="30">
-			</a></td>
-			<td><a href='/edu/visitordb2?id=<%=vo.getId()%>&action=update'>
-					<img src="/edu/images/edit.png" width="30">
-			</a></td> --%>
-		</tr>
-		<%
-		}
-		%>
-	</table>
+		main <a style="float: right;" href="/bbs/static/writeForm.html"><span>새
+				글 작성</span></a>
+		<div class="article">
+			최신글
+			<table style="width: 100%">
+				<tr id="trheader">
+					<td><strong>작성자</strong></td>
+					<td><strong>작성일</strong></td>
+					<td><strong>제목</strong></td>
+					<td><strong>조회수</strong></td>
+				</tr>
+				<%
+				for (ArticleVO vo : aList) {
+				%>
+				<tr
+					onClick="location.href='/bbs/article?action=read&article_id=<%=vo.getArticle_id()%>'">
+					<td><%=vo.getWriter_name()%></td>
+					<td><%=vo.getWrite_date()%></td>
+					<td><%=vo.getTitle()%></td>
+					<td><%=vo.getView_cnt()%></td>
+				</tr>
+				<%
+				}
+				%>
+			</table>
 		</div>
-		<div class="article">인기글</div>
+		<div class="article">
+			인기글
+			<table style="width: 100%">
+				<tr id="trheader">
+					<td><strong>작성자</strong></td>
+					<td><strong>작성일</strong></td>
+					<td><strong>제목</strong></td>
+					<td><strong>조회수</strong></td>
+				</tr>
+				<%
+				for (ArticleVO vo : popList) {
+				%>
+				<tr
+					onClick="location.href='/bbs/article?action=read&article_id=<%=vo.getArticle_id()%>'">
+					<td><%=vo.getWriter_name()%></td>
+					<td><%=vo.getWrite_date()%></td>
+					<td><%=vo.getTitle()%></td>
+					<td><%=vo.getView_cnt()%></td>
+				</tr>
+				<%
+				}
+				%>
+			</table>
+		</div>
 	</div>
 	<div>footer</div>
 </body>
