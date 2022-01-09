@@ -35,7 +35,7 @@ public class ArticleDAO {
 		try (Statement stmt = conn.createStatement()) {
 			ResultSet rs = stmt.executeQuery(
 					"SELECT article_id, u.name writer_name, date_format(write_date, '%Y년 %m월 %d일') write_date, title, view_cnt "
-							+ "FROM article a JOIN user u ON a.writer = u.uid " + "ORDER BY write_date DESC");
+							+ "FROM article a JOIN user u ON a.writer = u.uid " + "ORDER BY TIMESTAMP(write_date) DESC");
 			aList = new ArrayList<ArticleVO>();
 			ArticleVO vo;
 			while (rs.next()) {
@@ -61,7 +61,7 @@ public class ArticleDAO {
 		try (Statement stmt = conn.createStatement()) {
 			ResultSet rs = stmt.executeQuery(
 					"SELECT article_id, u.name writer_name, date_format(write_date, '%Y년 %m월 %d일') write_date, title, view_cnt "
-							+ "FROM article a JOIN user u ON a.writer = u.uid " + "ORDER BY view_cnt DESC LIMIT 10");
+							+ "FROM article a JOIN user u ON a.writer = u.uid " + "WHERE view_cnt!=0 ORDER BY view_cnt DESC LIMIT 10");
 			aList = new ArrayList<ArticleVO>();
 			ArticleVO vo;
 			while (rs.next()) {
