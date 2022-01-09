@@ -23,7 +23,7 @@
 		out.print("<button onclick=\"location.href='/bbs/article?action=delete&article_id="+article.getArticle_id()+"'\" style=\"margin: 4px\">게시글 삭제</button>");
 	}
 	%>
-	<button onclick="location.href='/bbs/jspsrc/index.jsp'">홈 화면으로</button>
+	<button onclick="location.href='${header.referer}'">이전 화면으로</button>
 	
 </body>
 </html>
