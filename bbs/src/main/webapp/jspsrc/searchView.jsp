@@ -11,7 +11,20 @@
 String key = request.getParameter("key");
 String word = request.getParameter("search");
 ArticleDAO dao = new ArticleDAO();
-List<ArticleVO> aList = key.equals("name") ? dao.readUserArticles(word) : dao.readWordArticles(word);
+List<ArticleVO> aList;
+switch (key) {
+case "name":
+	aList = dao.readUserArticles(word);
+	break;
+case "content":
+	aList = dao.readContArticles(word);
+	break;
+case "title":
+	aList = dao.readTitleArticles(word);
+	break;
+default:
+	aList = dao.readConTitleArticles(word);
+}
 %>
 <title><%=word%> 검색 결과</title>
 <style>
@@ -19,6 +32,7 @@ List<ArticleVO> aList = key.equals("name") ? dao.readUserArticles(word) : dao.re
 	background-color: #DDDDDD;
 	text-align: left;
 	width: 80%;
+	padding: 16px;
 }
 
 td {
@@ -48,7 +62,13 @@ td:nth-child(3) {
 <body>
 	<div>
 		<div class="article">
-		<%= word %>님 글 목록
+			<%
+			if (key.equals("name")) {
+				out.print(word + "님 글 목록");
+			} else {
+				out.print(key + "로 " + word + " 검색 결과");
+			}
+			%>
 			<table style="width: 100%">
 				<tr id="trheader">
 					<td><strong>작성자</strong></td>
@@ -71,6 +91,8 @@ td:nth-child(3) {
 				%>
 			</table>
 		</div>
+		<button onclick="location.href='/bbs/jspsrc/index.jsp'" style="margin-top: 8px">홈
+			화면으로</button>
 	</div>
 </body>
 </html>

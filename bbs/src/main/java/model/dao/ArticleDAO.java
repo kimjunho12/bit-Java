@@ -131,7 +131,61 @@ public class ArticleDAO {
 	}
 
 	// 특정 내용 게시물 조회
-	public List<ArticleVO> readWordArticles(String word) {
+	public List<ArticleVO> readContArticles(String word) {
+		Connection conn = MySQL.connect();
+		List<ArticleVO> aList = null;
+		try (Statement stmt = conn.createStatement()) {
+			ResultSet rs = stmt.executeQuery(
+					"SELECT article_id, u.name writer_name, date_format(write_date, '%Y년 %m월 %d일') write_date, title, view_cnt "
+							+ "FROM article a JOIN user u ON a.writer = u.uid " + "WHERE a.content LIKE '%" + word
+							+ "%' ORDER BY write_date DESC");
+			aList = new ArrayList<ArticleVO>();
+			ArticleVO vo;
+			while (rs.next()) {
+				vo = new ArticleVO();
+				vo.setArticle_id(rs.getInt("article_id"));
+				vo.setWriter_name(rs.getString("writer_name"));
+				vo.setWrite_date(rs.getString("write_date"));
+				vo.setTitle(rs.getString("title"));
+				vo.setView_cnt(rs.getInt("view_cnt"));
+				aList.add(vo);
+			}
+		} catch (Exception e) {
+			System.err.println("특정 내용 게시글 조회 오류 : " + e.getMessage());
+		}
+		MySQL.close(conn);
+		return aList;
+	}
+
+	// 특정 제목 게시물 조회
+	public List<ArticleVO> readTitleArticles(String word) {
+		Connection conn = MySQL.connect();
+		List<ArticleVO> aList = null;
+		try (Statement stmt = conn.createStatement()) {
+			ResultSet rs = stmt.executeQuery(
+					"SELECT article_id, u.name writer_name, date_format(write_date, '%Y년 %m월 %d일') write_date, title, view_cnt "
+							+ "FROM article a JOIN user u ON a.writer = u.uid " + "WHERE a.title LIKE '%" + word
+							+ "%' ORDER BY write_date DESC");
+			aList = new ArrayList<ArticleVO>();
+			ArticleVO vo;
+			while (rs.next()) {
+				vo = new ArticleVO();
+				vo.setArticle_id(rs.getInt("article_id"));
+				vo.setWriter_name(rs.getString("writer_name"));
+				vo.setWrite_date(rs.getString("write_date"));
+				vo.setTitle(rs.getString("title"));
+				vo.setView_cnt(rs.getInt("view_cnt"));
+				aList.add(vo);
+			}
+		} catch (Exception e) {
+			System.err.println("특정 내용 게시글 조회 오류 : " + e.getMessage());
+		}
+		MySQL.close(conn);
+		return aList;
+	}
+
+	// 특정 내용+제목 게시물 조회
+	public List<ArticleVO> readConTitleArticles(String word) {
 		Connection conn = MySQL.connect();
 		List<ArticleVO> aList = null;
 		try (Statement stmt = conn.createStatement()) {

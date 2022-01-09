@@ -52,18 +52,21 @@ td:nth-child(3) {
 </head>
 <body>
 	<%
-	if (session.getAttribute("login_user") == null) {
-		response.sendRedirect("/bbs/static/index.html");
-		return;
-	}
 	List<ArticleVO> aList = new ArticleDAO().readAllArticles();
 	List<ArticleVO> popList = new ArticleDAO().readPopArticles();
 	%>
 	<div>
-		<span style="background-color: green;">게시팔</span> <input type="search">
-		<span style="float: right;"> <span>${ sessionScope.login_user.name }님</span>
-			<a href="/bbs/login">로그아웃</a> <a href="/bbs/jspsrc/mypage.jsp">마이페이지</a>
-		</span>
+		<form action="/bbs/jspsrc/searchView.jsp">
+			<span style="background-color: green;">게시팥</span> <select name="key">
+				<option></option>
+				<option value="name">이름</option>
+				<option value="title">제목</option>
+				<option value="content">내용</option>
+			</select> <input type="search" name="search" placeholder="검색어를 입럭하세요">
+			<span style="float: right;"> <span>${ sessionScope.login_user.name }님</span>
+				<a href="/bbs/login">로그아웃</a> <a href="/bbs/jspsrc/mypage.jsp">마이페이지</a>
+			</span>
+		</form>
 	</div>
 	<div>
 		main <a style="float: right;" href="/bbs/static/writeForm.html"><span>새
