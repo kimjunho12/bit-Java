@@ -52,6 +52,10 @@ td:nth-child(3) {
 </head>
 <body>
 	<%
+	if (session.getAttribute("login_user") == null) {
+		response.sendRedirect("/bbs/static/index.html");
+		return;
+	}
 	List<ArticleVO> aList = new ArticleDAO().readAllArticles();
 	List<ArticleVO> popList = new ArticleDAO().readPopArticles();
 	%>
