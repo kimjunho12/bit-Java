@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,8 +20,30 @@ public class ArticleServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String action = request.getParameter("action");
+		int article_id = Integer.parseInt(request.getParameter("article_id"));
+		ArticleVO article = new ArticleVO();
+		ArticleDAO dao = new ArticleDAO();
+		HttpSession session = request.getSession();
+		UserVO user = (UserVO) session.getAttribute("login_user");
+//		if (user == null) {
+//			request.getRequestDispatcher("/auth/login.html");
+//		}
+
+		switch (action) {
+		case "delete":
+			dao.deleteArticle(article_id);
+			break;
+		case "read":
+			article = dao.readOneArticle(article_id);
+			request.setAttribute("article", article);
+			request.getRequestDispatcher("/jspsrc/articleDetails.jsp").forward(request, response);
+			break;
+		default:
+			List<ArticleVO> aList = dao.readAllArticles();
+			request.setAttribute("aList", aList);
+		}
+		response.sendRedirect("/bbs/jspsrc/index.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -41,7 +65,11 @@ public class ArticleServlet extends HttpServlet {
 		case "insert":
 			dao.createArticle(article);
 			break;
+		case "update":
+			dao.updateArticle(article);
+			break;
 		}
+		response.sendRedirect("/bbs/jspsrc/index.jsp");
 	}
 
 }

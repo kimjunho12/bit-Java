@@ -34,16 +34,17 @@ public class ArticleDAO {
 		List<ArticleVO> aList = null;
 		try (Statement stmt = conn.createStatement()) {
 			ResultSet rs = stmt
-					.executeQuery("SELECT article_id, u.name, date_format(write_date, '%Y년 %m월 %d일') write_date, title "
+					.executeQuery("SELECT article_id, u.name writer_name, date_format(write_date, '%Y년 %m월 %d일') write_date, title, view_cnt "
 							+ "FROM article a JOIN user u ON a.writer = u.uid " + "ORDER BY write_date DESC");
 			aList = new ArrayList<ArticleVO>();
 			ArticleVO vo;
 			while (rs.next()) {
 				vo = new ArticleVO();
 				vo.setArticle_id(rs.getInt("article_id"));
-				vo.setWriter_name(rs.getString("name"));
+				vo.setWriter_name(rs.getString("writer_name"));
 				vo.setWrite_date(rs.getString("write_date"));
 				vo.setTitle(rs.getString("title"));
+				vo.setView_cnt(rs.getInt("view_cnt"));
 				aList.add(vo);
 			}
 		} catch (Exception e) {
@@ -59,14 +60,14 @@ public class ArticleDAO {
 		ArticleVO article = null;
 		try (Statement stmt = conn.createStatement()) {
 			ResultSet rs = stmt.executeQuery(
-					"SELECT article_id, writer_id, writer_name, title, content, write_date, modify_date, view_cnt "
-							+ "FROM article a JOIN user u ON a.writer_id = u.uid " + "WHERE article_id=" + article_id);
+					"SELECT article_id, writer writer_id, u.name writer_name, title, content, write_date, modify_date, view_cnt "
+							+ "FROM article a JOIN user u ON a.writer = u.uid " + "WHERE article_id=" + article_id);
 			if (rs.next()) {
 				article = new ArticleVO(rs);
 				System.out.println(article.getArticle_id() + " 조회 성공!");
 			}
 		} catch (Exception e) {
-			System.err.println(article_id + " 계정 조회 오류" + e.getMessage());
+			System.err.println(article_id + " 게시글 조회 오류" + e.getMessage());
 		}
 		MySQL.close(conn);
 		return article;
@@ -78,7 +79,7 @@ public class ArticleDAO {
 		List<ArticleVO> aList = null;
 		try (Statement stmt = conn.createStatement()) {
 			ResultSet rs = stmt
-					.executeQuery("SELECT article_id, u.name, date_format(write_date, '%Y년 %m월 %d일') write_date, title "
+					.executeQuery("SELECT article_id, u.name writer_name, date_format(write_date, '%Y년 %m월 %d일') write_date, title "
 							+ "FROM article a JOIN user u ON a.writer = u.uid " + "WHERE u.name=" + name
 							+ " ORDER BY write_date DESC");
 			aList = new ArrayList<ArticleVO>();
@@ -104,7 +105,7 @@ public class ArticleDAO {
 		List<ArticleVO> aList = null;
 		try (Statement stmt = conn.createStatement()) {
 			ResultSet rs = stmt
-					.executeQuery("SELECT article_id, u.name, date_format(write_date, '%Y년 %m월 %d일') write_date, title "
+					.executeQuery("SELECT article_id, u.name writer_name, date_format(write_date, '%Y년 %m월 %d일') write_date, title "
 							+ "FROM article a JOIN user u ON a.writer = u.uid " + "WHERE a.title LIKE %" + word
 							+ "% OR a.content LIKE %" + word + "% ORDER BY write_date DESC");
 			aList = new ArrayList<ArticleVO>();
