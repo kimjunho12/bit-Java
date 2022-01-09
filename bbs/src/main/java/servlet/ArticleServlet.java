@@ -24,12 +24,12 @@ public class ArticleServlet extends HttpServlet {
 		int article_id = Integer.parseInt(request.getParameter("article_id"));
 		ArticleVO article = new ArticleVO();
 		ArticleDAO dao = new ArticleDAO();
+		String dest = "/jspsrc/index.jsp";
 		HttpSession session = request.getSession();
 		UserVO user = (UserVO) session.getAttribute("login_user");
 //		if (user == null) {
 //			request.getRequestDispatcher("/auth/login.html");
 //		}
-
 		switch (action) {
 		case "delete":
 			dao.deleteArticle(article_id);
@@ -37,13 +37,17 @@ public class ArticleServlet extends HttpServlet {
 		case "read":
 			article = dao.readOneArticle(article_id);
 			request.setAttribute("article", article);
-			request.getRequestDispatcher("/jspsrc/articleDetails.jsp").forward(request, response);
+			dest = "/jspsrc/articleDetails.jsp";
 			break;
+		case "update":
+			article = dao.readOneArticle(article_id);
+			request.setAttribute("article", article);
+			dest = "/jspsrc/updateForm.jsp";
 		default:
 			List<ArticleVO> aList = dao.readAllArticles();
 			request.setAttribute("aList", aList);
 		}
-		response.sendRedirect("/bbs/jspsrc/index.jsp");
+		request.getRequestDispatcher(dest).forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -66,6 +70,7 @@ public class ArticleServlet extends HttpServlet {
 			dao.createArticle(article);
 			break;
 		case "update":
+			article.setArticle_id(Integer.parseInt(request.getParameter("article_id")));
 			dao.updateArticle(article);
 			break;
 		}

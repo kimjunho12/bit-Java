@@ -11,8 +11,9 @@
 <hr>
 <form action="/bbs/article" method="post"> <!-- enctype="multipart/form-data"> -->
 	<input type="hidden" name="action" value="update">
-	제목 : <input type="text" name="title" required><br>
-	내용 : <textarea name="content" rows="10" cols="35" required></textarea><br>
+	<input type="hidden" name="article_id" value="${ requestScope.article.article_id }">
+	제목 : <input type="text" name="title" value="${ requestScope.article.title }" required><br>
+	내용 : <textarea name="content" rows="10" cols="35" required> ${ requestScope.article.content }</textarea><br>
 	파일 : <input type="file" name="file_path">
 	<input type="submit" value="작성">	
 </form>
