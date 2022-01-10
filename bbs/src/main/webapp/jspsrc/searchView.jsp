@@ -66,7 +66,9 @@ td:nth-child(3) {
 			if (key.equals("name")) {
 				out.print(word + "님 글 목록");
 			} else {
-				out.print(key + "로 " + word + " 검색 결과");
+				if (key.isBlank())
+					key = "전체";
+				out.print(key + "로 \"" + word + "\" 검색 결과");
 			}
 			%>
 			<table style="width: 100%">

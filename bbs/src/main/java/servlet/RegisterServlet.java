@@ -31,9 +31,9 @@ public class RegisterServlet extends HttpServlet {
 		
 		UserDAO dao = new UserDAO();
 		if(dao.createUser(user)) {
-			out.printf("<h1>회원가입 성공</h1><hr>" + "<a href='/bbs/static/index.html'>홈 화면으로</a>");			
+			out.printf("<h1>회원가입 성공</h1><hr>" + "<a href='/bbs/jspsrc/index.jsp'>홈 화면으로</a>");			
 		} else {
-			out.println("<h1>회원가입 실패</h1><hr><a href='/bbs/static/index.html'>홈 화면으로</a>");
+			out.println("<h1>회원가입 실패</h1><hr><a href='/bbs/jspsrc/index.jsp'>홈 화면으로</a>");
 		}
 
 	}

@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
 			out.printf("<h1>%s 로그인 성공</h1><hr>", dao.readOneUser(user.getUid()));
 			HttpSession session = request.getSession();
 			session.setAttribute("login_user", user);
-			response.sendRedirect("/bbs/jspsrc/index.jsp");
+			response.sendRedirect("/bbs/jspsrc/index_auth.jsp");
 		} else {
 			out.printf("<h1>로그인 실패</h1><hr>");
 		}

@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -27,14 +28,18 @@ public class ArticleServlet extends HttpServlet {
 		String dest = "/jspsrc/index.jsp";
 		HttpSession session = request.getSession();
 		UserVO user = (UserVO) session.getAttribute("login_user");
-//		if (user == null) {
-//			request.getRequestDispatcher("/auth/login.html");
-//		}
 		switch (action) {
 		case "delete":
 			dao.deleteArticle(article_id);
 			break;
 		case "read":
+			if (user == null) {
+				response.setContentType("text/html; charset=utf-8");
+				PrintWriter out = response.getWriter();
+				out.print("<script>alert('로그인이 필요합니다.'); location.href='/bbs/auth/login.html'</script>");
+				out.close();
+				return;
+			}
 			article = dao.readOneArticle(article_id);
 			request.setAttribute("article", article);
 			dest = "/jspsrc/articleDetails.jsp";

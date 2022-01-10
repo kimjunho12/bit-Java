@@ -52,8 +52,8 @@ td:nth-child(3) {
 </head>
 <body>
 	<%
-	if (session.getAttribute("login_user") != null) {
-		response.sendRedirect("/bbs/jspsrc/index_auth.jsp");
+	if (session.getAttribute("login_user") == null) {
+		request.getRequestDispatcher("/bbs/jspsrc/index.html").forward(request, response);
 		return;
 	}
 	List<ArticleVO> aList = new ArticleDAO().readAllArticles();
@@ -67,14 +67,14 @@ td:nth-child(3) {
 				<option value="title">제목</option>
 				<option value="content">내용</option>
 			</select> <input type="search" name="search" placeholder="검색어를 입럭하세요">
-			<span style="float: right;">
-			<a href="/bbs/auth/login.html">로그인</a>
-			<a href="/bbs/auth/register.html">회원가입</a>
+			<span style="float: right;"> <span>${ sessionScope.login_user.name }님</span>
+				<a href="/bbs/login">로그아웃</a> <a href="/bbs/jspsrc/mypage.jsp">마이페이지</a>
 			</span>
 		</form>
 	</div>
 	<div>
-		main
+		main <a style="float: right;" href="/bbs/static/writeForm.html"><span>새
+				글 작성</span></a>
 		<div class="article">
 			최신글
 			<table style="width: 100%">

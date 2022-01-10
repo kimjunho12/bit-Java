@@ -35,7 +35,7 @@ public class MyPageServlet extends HttpServlet {
 		} else {
 			out.println("<h1>정보수정 실패</h1><hr><a href='/bbs/jspsrc/index.jsp'>홈 화면으로</a>");
 		}
-
+		out.close();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
