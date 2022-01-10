@@ -1,3 +1,6 @@
+<%@page import="model.vo.UserVO"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
 <%@page import="model.dao.ArticleDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="model.vo.ArticleVO"%>
@@ -13,7 +16,7 @@ div {
 	padding: 16px;
 	margin: 16px;
 	background-color: silver;
-	text-align: center;
+	text-align: left;
 }
 
 span {
@@ -23,7 +26,8 @@ span {
 .article {
 	background-color: #DDDDDD;
 	text-align: left;
-	width: 80%;
+	width: 70%;
+	display: inline-block;
 }
 
 td {
@@ -95,6 +99,26 @@ td:nth-child(3) {
 					<td><%=vo.getView_cnt()%></td>
 				</tr>
 				<%
+				}
+				%>
+			</table>
+		</div>
+		<div style="width: 15%; display: inline-block;">
+			<table>
+				<tr>
+					<td>로그인 유저</td>
+				</tr>
+				<%
+				Map<String, Boolean> sMap = (Map<String, Boolean>) getServletContext().getAttribute("smap");
+				if (sMap != null) {
+					for (String s : sMap.keySet()) {
+						System.out.println(s);
+				%>
+				<tr>
+					<td><%=s%></td>
+				</tr>
+				<%
+				}
 				}
 				%>
 			</table>

@@ -2,7 +2,10 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +19,8 @@ import model.vo.UserVO;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	Map<String, Boolean> sMap = new HashMap<>();
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -23,6 +28,7 @@ public class LoginServlet extends HttpServlet {
 
 		String email = request.getParameter("email");
 		String pw = request.getParameter("passwd");
+		ServletContext context = getServletContext();
 
 		if (email.equals("admin") && pw.equals("admin")) {
 			return;
@@ -39,6 +45,8 @@ public class LoginServlet extends HttpServlet {
 			out.printf("<h1>%s 로그인 성공</h1><hr>", dao.readOneUser(user.getUid()));
 			HttpSession session = request.getSession();
 			session.setAttribute("login_user", user);
+			sMap.put(user.getName(), true);
+			context.setAttribute("smap", sMap);
 			response.sendRedirect("/bbs/jspsrc/index_auth.jsp");
 		} else {
 			out.printf("<h1>로그인 실패</h1><hr>");
@@ -49,6 +57,9 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		ServletContext context = getServletContext();
+		sMap.remove(((UserVO) session.getAttribute("login_user")).getName());
+		context.setAttribute("smap", sMap);
 		session.invalidate();
 		response.sendRedirect("/bbs/jspsrc/index.jsp");
 	}

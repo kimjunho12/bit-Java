@@ -1,3 +1,7 @@
+<%@page import="model.vo.UserVO"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="model.dao.ArticleDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="model.vo.ArticleVO"%>
@@ -13,7 +17,7 @@ div {
 	padding: 16px;
 	margin: 16px;
 	background-color: silver;
-	text-align: center;
+	text-align: left;
 }
 
 span {
@@ -23,7 +27,8 @@ span {
 .article {
 	background-color: #DDDDDD;
 	text-align: left;
-	width: 80%;
+	width: 70%;
+	display: inline-block;
 }
 
 td {
@@ -67,14 +72,13 @@ td:nth-child(3) {
 				<option value="title">제목</option>
 				<option value="content">내용</option>
 			</select> <input type="search" name="search" placeholder="검색어를 입럭하세요">
-			<span style="float: right;">
-			<a href="/bbs/auth/login.html">로그인</a>
-			<a href="/bbs/auth/register.html">회원가입</a>
+			<span style="float: right;"> <a href="/bbs/auth/login.html">로그인</a>
+				<a href="/bbs/auth/register.html">회원가입</a>
 			</span>
 		</form>
 	</div>
 	<div>
-		main
+		<p>main</p>
 		<div class="article">
 			최신글
 			<table style="width: 100%">
@@ -95,6 +99,26 @@ td:nth-child(3) {
 					<td><%=vo.getView_cnt()%></td>
 				</tr>
 				<%
+				}
+				%>
+			</table>
+		</div>
+		<div style="width: 15%; display: inline-block;">
+			<table>
+				<tr>
+					<td>로그인 유저</td>
+				</tr>
+				<%
+				Map<String, Boolean> sMap = (Map<String, Boolean>) getServletContext().getAttribute("smap");
+				if (sMap != null) {
+					for (String s : sMap.keySet()) {
+						System.out.println(s);
+				%>
+				<tr>
+					<td><%=s%></td>
+				</tr>
+				<%
+				}
 				}
 				%>
 			</table>
