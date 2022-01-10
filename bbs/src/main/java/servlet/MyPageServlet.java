@@ -2,12 +2,15 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.UserDAO;
 import model.vo.UserVO;
@@ -49,7 +52,11 @@ public class MyPageServlet extends HttpServlet {
 		case "delete_user":
 			if (dao.deleteUser(user.getUid())) {
 				System.out.printf("%s %s 삭제완료\n", user.getUid(), user.getName());
-				request.getSession().invalidate();
+				HttpSession session = request.getSession();
+				ServletContext context = getServletContext();
+				Map<String, Boolean> sMap = (Map<String, Boolean>) context.getAttribute("smap");
+				sMap.remove(((UserVO) session.getAttribute("login_user")).getName());
+				context.setAttribute("smap", sMap);
 				response.sendRedirect("/bbs/jspsrc/index.jsp");
 			} else {
 				System.out.printf("%s %s 삭제실패\n", user.getUid(), user.getName());
