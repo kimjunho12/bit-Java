@@ -17,6 +17,12 @@ div {
 	margin: 16px;
 	background-color: silver;
 	text-align: left;
+	width: 100%;
+}
+
+#main {
+	height: auto;
+	float: left;
 }
 
 span {
@@ -28,6 +34,7 @@ span {
 	text-align: left;
 	width: 70%;
 	display: inline-block;
+	float: left;
 }
 
 td {
@@ -76,8 +83,9 @@ td:nth-child(3) {
 			</span>
 		</form>
 	</div>
-	<div>
-		main <a style="float: right;" href="/bbs/static/writeForm.html"><span>새
+	<div id="main">
+		<p>main</p>
+		<a style="float: right;" href="/bbs/static/writeForm.html"><span>새
 				글 작성</span></a>
 		<div class="article">
 			최신글
@@ -112,7 +120,6 @@ td:nth-child(3) {
 				Map<String, Boolean> sMap = (Map<String, Boolean>) getServletContext().getAttribute("smap");
 				if (sMap != null) {
 					for (String s : sMap.keySet()) {
-						System.out.println(s);
 				%>
 				<tr>
 					<td><%=s%></td>
