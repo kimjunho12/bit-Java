@@ -64,7 +64,7 @@ td:nth-child(3) {
 <body>
 	<%
 	if (session.getAttribute("login_user") == null) {
-		request.getRequestDispatcher("/bbs/jspsrc/index.html").forward(request, response);
+		request.getRequestDispatcher("/jspsrc/index.jsp").forward(request, response);
 		return;
 	}
 	List<ArticleVO> aList = new ArticleDAO().readAllArticles();
