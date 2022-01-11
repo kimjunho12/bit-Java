@@ -2,3 +2,8 @@
 .metadata
 .vscode
 Servers*
+**/.classpath
+**/.project
+**/.settings
+**/target
+**/build
