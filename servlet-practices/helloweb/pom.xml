@@ -54,7 +54,7 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.2.1</version>
 				<configuration>
-					<warSourceDirectory>${project.basedir}src/main/webapp</warSourceDirectory>	<!-- 정적 소스 위치 -->
+					<warSourceDirectory>${project.basedir}/src/main/webapp</warSourceDirectory>	<!-- 정적 소스 위치 -->
 					<failOnMissingWebXml>true</failOnMissingWebXml>
 				</configuration>
 			</plugin>
