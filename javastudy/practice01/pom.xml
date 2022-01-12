@@ -8,14 +8,4 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>practice01</artifactId>
-
-	<!-- 수정 부분 -->
-	<packaging>jar</packaging>
-
-	<dependencies>	<!-- 라이브러리(의존성) 추가 -->
-	</dependencies>
-
-	<build>
-		<finalName>practice01</finalName>
-	</build>
 </project>
