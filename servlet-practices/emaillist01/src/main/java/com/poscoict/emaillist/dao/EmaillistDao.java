@@ -74,4 +74,9 @@ public class EmaillistDao {
 		}
 		return result;
 	}
+
+	public boolean insert() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
