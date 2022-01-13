@@ -1,6 +1,5 @@
 package com.poscoict.guestbook.vo;
 
-import java.util.Date;
 
 public class GuestbookVo {
 	private long no;
