@@ -13,10 +13,10 @@ public class EmaillistDaoTest {
 
     private static void testInsert() {
     	EmaillistVo vo = new EmaillistVo();
-    	vo.setFirstName("김");
-    	vo.setLastName("준호");
+    	vo.setFirstName("준호");
+    	vo.setLastName("김");
     	vo.setEmail("98kimjh@gmail.com");
-    	boolean result = new EmaillistDao().insert();
+    	boolean result = new EmaillistDao().insert(vo);
 		
     	System.out.println(result ? "success" : "fail");
 	}
