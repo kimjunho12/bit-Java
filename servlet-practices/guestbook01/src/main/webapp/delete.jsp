@@ -6,7 +6,7 @@ long no = Long.parseLong(request.getParameter("no"));
 String password = request.getParameter("password");
 GuestbookDao dao = new GuestbookDao();
 boolean result = dao.delete(no, password);
-response.sendRedirect("/guestbook01/index.jsp");
+response.sendRedirect(request.getContextPath() + "/guestbook01/index.jsp");
 %>
 <!DOCTYPE html>
 <html>
