@@ -9,8 +9,8 @@
 	</parent>
 	<artifactId>jstlel</artifactId>
 	<packaging>war</packaging>
-	
-		<!-- 수정 부분 -->
+
+	<!-- 수정 부분 -->
 	<properties>	<!-- 속성 설정 -->
 		<project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
@@ -23,6 +23,14 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.17</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/jstl/jstl -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
 
 	</dependencies>
 

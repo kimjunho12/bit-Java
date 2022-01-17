@@ -24,9 +24,22 @@ _Expression Language_
 - HttpSession 객체에 cart 라는 명칭으로 저장된 객체의 getApple() 을 호출<br>
 `${ sessionScope.cart.apple } 또는 ${ cart.apple }`
 - EL 에서의 . 연산자
-<span style="color: blue;">_변수명.xxx_</span>
-Ⅰ. 일반 Java 객체이면 getXxx()의 호출 결과와 동일
-Ⅱ. Map 객체이면 get("xxx")을 호출한 결과와 동일
+<span style="color: blue;">_변수명.xxx_</span><br>
+Ⅰ. 일반 Java 객체이면 getXxx()의 호출 결과와 동일<br>
+Ⅱ. Map 객체이면 get("xxx")을 호출한 결과와 동일<br>
+
+<br>
+
+>       1. scope(범위)
+>       객체가 존재하는 범위
+>       
+>       2. 객체가 오래 지속되는 순서
+>       Application(Context) Scope > Session Scope > Request Scope > Page Context
+>       
+>       3. EL이 이름으로 객체를 찾는 순서
+>       Application(Context) Scope < Session Scope < Request Scope < Page Context
+>       
+>       ❗ 주의 : 같은 이름으로 여러 범위에 객체를 저장할 경우, 주의 필요
 
 
 ### EL의 연산자
@@ -43,3 +56,12 @@ pageContext의 Attribute (JSP내에서만 사용가능한 pageScope 객체)
 > - ${xxx} : 변수가 xxx인 값 추출
 
 ## JSTL
+_JSP Standard Tag Library_
+JSP에서 사용 가능한 표준 태그 라이브러리
+
+### JSTL 라이브러리
+- 기본기능 (core) `<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>`
+- 형식화 (format) `<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>`
+- 데이터베이스 (sql)
+- XML 처리 (xml)
+- 함수처리 (function) `<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>`
