@@ -88,9 +88,10 @@ test 속성에 지정한 조건을 평가
 ```
 
 - `<c:forEach>`<br>
-배열 또는 List, Map등 컬렉션 객체에 저장되어 있는 요소를 순차적으로 처리
-**순회**
+배열 또는 List, Map등 컬렉션 객체에 저장되어 있는 요소를 순차적으로 처리<br>
+**순회**<br>
 ![](https://images.velog.io/images/98kimjh/post/45b1a2af-9413-4665-98b5-1f7090414c1e/image.png)
+
 ```jsp
 	<c:forEach items="${list }" var="vo" varStatus="status">
 		[${count-status.index }] [${status.index }:${status.count }] : ${vo.no } : ${vo.name } <br />
