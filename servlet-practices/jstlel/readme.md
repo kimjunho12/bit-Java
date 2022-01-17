@@ -1,6 +1,6 @@
 ___
 ## EL
-_Expression Language_
+_Expression Language_<br>
 특정 스코프 영역에 보관되어 있는 객체를 추출하여 이 객체의 값 또는 속성 **값을 추출**하여 표현
 - `$`와 `{ }`으로 구현
 - 관련된 연산자와 **EL 만의 내장 객체**를 사용
@@ -55,13 +55,81 @@ pageContext의 Attribute (JSP내에서만 사용가능한 pageScope 객체)
 > - ${oooScope.xxx} : oooScope에 담긴 값중 키가 xxx인 값 추출
 > - ${xxx} : 변수가 xxx인 값 추출
 
-## JSTL
-_JSP Standard Tag Library_
-JSP에서 사용 가능한 표준 태그 라이브러리
+### JSTL Core
+- `<c:if>`<br>
+자바의 if문과 비슷한 기능 제공<br>
+※ else문은 없음<br>
+test 속성에 지정한 조건을 평가
+```jsp
+	<c:if test="${result == 'fail'}">
+		<p>로그인이 실패 했습니다.</p>
+	</c:if>
+```
 
-### JSTL 라이브러리
-- 기본기능 (core) `<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>`
-- 형식화 (format) `<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>`
-- 데이터베이스 (sql)
-- XML 처리 (xml)
-- 함수처리 (function) `<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>`
+- `<c:choose>`<br>
+자바의 if~elseif~else문과 같은 기능<br>
+서브 태그로 `<c:when>`, `<c:otherwhise>`<br>
+`<c:when>`, `<c:otherwhise>`의 test 속성에 지정한 조건을 평가
+```jsp
+	<c:choose>
+		<c:when test="${param.c=='r' }">
+			<h1 style="color: red">Hello World</h1>
+		</c:when>
+		<c:when test="${param.c=='g' }">
+			<h1 style="color: green">Hello World</h1>
+		</c:when>
+		<c:when test="${param.c=='b' }">
+			<h1 style="color: blue">Hello World</h1>
+		</c:when>
+		<c:otherwise>
+			<h1 style="color: black">Hello World</h1>
+		</c:otherwise>
+	</c:choose>
+```
+
+- `<c:forEach>`<br>
+배열 또는 List, Map등 컬렉션 객체에 저장되어 있는 요소를 순차적으로 처리
+**순회**
+![](https://images.velog.io/images/98kimjh/post/45b1a2af-9413-4665-98b5-1f7090414c1e/image.png)
+```jsp
+	<c:forEach items="${list }" var="vo" varStatus="status">
+		[${count-status.index }] [${status.index }:${status.count }] : ${vo.no } : ${vo.name } <br />
+	</c:forEach>
+```
+**지정 반복**
+```jsp
+<c:forEach begin="시작값" end="끝값" var="변수이름" step="증가치">
+</c:forEach>
+```
+```jsp
+	<c:forEach begin="0" end="${row-1 }" step="1" var="r">
+		<tr>
+			<c:forEach begin="0" end="${col-1 }" step="1" var="c">
+				<td>cell(${r }, ${c })</td>
+			</c:forEach>
+
+		</tr>
+	</c:forEach>
+```
+
+- `<c:set>`
+변수에 값을 설정
+```jsp
+<c:set var="변수명" value="값" scope="" /> <!-- (default : page) -->
+```
+```jsp
+<c:set var="count" value="${fn:length(list) }" />
+<c:set var="count"> ${fn:length(list) } </c:set>
+```
+```jsp
+<c:set target="${memberInfo }" property="name" value="홍길동" />
+```
+
+- `<c:import>`<br>
+`<jsp:include>` 처럼 다른 페이지를 동적으로 포함
+```jsp
+	<c:import url="/WEB-INF/views/includes/header.jsp" />
+	<c:import url="/WEB-INF/views/includes/header.jsp" >
+	  <c:param name="이름" value="값"></c:param>
+	</c:import>
+```
