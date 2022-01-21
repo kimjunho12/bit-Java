@@ -6,5 +6,6 @@
   <packaging>pom</packaging>
   <modules>
   	<module>helloweb03</module>
+  	<module>emaillist03</module>
   </modules>
 </project>
