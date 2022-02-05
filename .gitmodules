@@ -1,3 +1,6 @@
 [submodule "mysite"]
 	path = mysite
 	url = https://github.com/kimjunho12/mysite.git
+[submodule "jblog"]
+	path = jblog
+	url = https://github.com/kimjunho12/jblog.git
