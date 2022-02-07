@@ -13,4 +13,54 @@
         http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 
 	<bean id="user1" class="com.poscoict.container.user.User1" />
+
+	<!-- 기본 생성자로 빈 생성 -->
+	<bean id="user" name="usr" class="com.poscoict.container.user.User" />
+
+	<!-- 파라미터 1개인 생성자로 빈 생성 -->
+	<bean id="user2" class="com.poscoict.container.user.User">
+		<constructor-arg value="둘리" />
+	</bean>
+
+	<!-- 파라미터 2개인 생성자로 빈 생성1 -->
+	<bean id="user3" class="com.poscoict.container.user.User">
+		<constructor-arg value="3" />
+		<constructor-arg value="마이콜" ></constructor-arg>
+	</bean>
+	
+	<!-- 파라미터 2개인 생성자로 빈 생성2 (parameter 순서 변경) -->
+	<bean id="user4" class="com.poscoict.container.user.User">
+		<constructor-arg index="1" value="마이콜" />
+		<constructor-arg index="0" value="4" />
+	</bean>
+	
+	<!-- Setter 사용하여 빈 생성 -->
+	<bean id="user5" class="com.poscoict.container.user.User">
+		<property name="name" value="도우너" />
+		<property name="no" value="5" />
+	</bean>
+
+	<!-- 의존성 주입 - DI  / Wiring -->
+	<bean id="friend" class="com.poscoict.container.user.Friend">
+		<constructor-arg value="고길동" />
+	</bean>
+	<bean id="user6" class="com.poscoict.container.user.User">
+		<property name="name" value="영희" />
+		<property name="no" value="6" />
+		<property name="friend" ref="friend" />
+	</bean>
+	
+	<!-- Setter를 사용한 List 세팅 -->
+	<bean id="user7" class="com.poscoict.container.user.User">
+		<property name="no" value="7" />
+		<property name="name" value="아이언맨" />
+		<property name="friends" >
+			<list>
+				<value>스타이더맨</value>
+				<value>캡핀아메리카</value>
+				<value>헐끄니까~</value>
+			</list>
+		</property>
+	</bean>
+
 </beans>
