@@ -6,6 +6,7 @@ ___
 - soundSystem : auto wiring (java, xml config) - Annotation
 - videoSystem : explicit wiring (java, xml config) - Bean
 
+
 > ||`XML`|`Java`|
 > |:---:|:---:|:---:|
 > |Auto|scan & `@(Annotation)`|?|
@@ -122,6 +123,18 @@ ___
 
 ### Java-Config
 
+```java
+@Configuration
+public class AppConfig02 {
+	
+	@Bean
+	public User user() {
+		return new User("둘리");
+	}
+
+}
+```
+
 ___
 
 ### BeanFactory
@@ -199,3 +212,36 @@ public class XmlConfigTest {
 		System.out.println(user1.getName());
 	}
 ```
+
+- Java-Config
+
+```java
+public class AppConfigTest {
+	
+	public static void main(String[] args) {
+		testAppConfig01();
+		testAppConfig02();
+	}
+	
+	// Java Config 1
+	// 직접 자바 클래스(Config Class)를 전달
+	public static void testAppConfig01() {
+		ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig01.class);
+		
+		User user = ac.getBean(User.class);
+		System.out.println(user);
+	}
+	
+	// Java Config 2
+	// 직접 자바 클래스(Config Class)를 전달
+	// Class에 @Configuration 추가
+	public static void testAppConfig02() {
+		ApplicationContext ac = new AnnotationConfigApplicationContext("com.poscoict.container.config.user");
+		
+		User user = ac.getBean(User.class);
+		System.out.println(user);
+	}
+
+}
+```
+
