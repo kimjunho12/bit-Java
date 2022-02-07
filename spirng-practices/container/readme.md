@@ -7,6 +7,43 @@ ___
 - videoSystem : explicit wiring (java, xml config) - Bean
 
 
+### Tree
+```
+📦container
+ ┣ 📂src
+ ┃ ┣ 📂main
+ ┃ ┃ ┣ 📂java
+ ┃ ┃ ┃ ┗ 📂com
+ ┃ ┃ ┃ ┃ ┗ 📂poscoict
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂container
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂config
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂soundsystem
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜CDPlayerConfig.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂soundsystem
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CDPlayer.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CompactDisc.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜HighSchoolRapper2Final.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂videosystem
+ ┃ ┃ ┗ 📂resources
+ ┃ ┃ ┃ ┗ 📂com
+ ┃ ┃ ┃ ┃ ┗ 📂poscoict
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂container
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂config
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂soundsystem
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜CDPlayerConfig.xml
+ ┃ ┗ 📂test
+ ┃ ┃ ┣ 📂java
+ ┃ ┃ ┃ ┗ 📂com
+ ┃ ┃ ┃ ┃ ┗ 📂poscoict
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂container
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂soundsystem
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CDPlayerJavaConfigTest.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜CDPlayerXmlConfigTest.java
+ 	 ┗ 📂resources
+```
+
+
+
 > ||`XML`|`Java`|
 > |:---:|:---:|:---:|
 > |Auto|scan & `@(Annotation)`|?|
