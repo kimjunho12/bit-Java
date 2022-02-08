@@ -1,5 +1,6 @@
 package com.poscoict.container.videosystem;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Ignore;
@@ -47,16 +48,41 @@ public class DvdPlayerXmlConfigTest {
 	@Qualifier("avengersDirectorEdition")
 	@Autowired
 	private DigitalVideoDisc dvd7;
-	
+
 	@Qualifier("avengersExpansionEdition01")
 	@Autowired
 	private DigitalVideoDisc dvd8;
-	
-	
-	
-	
+
+	@Qualifier("avengersExpansionEdition02")
+	@Autowired
+	private DigitalVideoDisc dvd9;
+
+	@Qualifier("avengersExpansionEdition03")
+	@Autowired
+	private DigitalVideoDisc dvd10;
+
 	@Autowired
 	private DVDPack dvdPack;
+
+	@Qualifier("dvdPlayer01")
+	@Autowired
+	private DVDPlayer dvdPlayer1;
+
+	@Qualifier("dvdPlayer02")
+	@Autowired
+	private DVDPlayer dvdPlayer2;
+
+	@Qualifier("dvdPlayer03")
+	@Autowired
+	private DVDPlayer dvdPlayer3;
+
+	@Qualifier("dvdPlayer04")
+	@Autowired
+	private DVDPlayer dvdPlayer4;
+	
+	@Qualifier("dvdPlayer05")
+	@Autowired
+	private DVDPlayer dvdPlayer5;
 
 	@Ignore
 	@Test /* 빈 생성 테스트 */
@@ -93,17 +119,55 @@ public class DvdPlayerXmlConfigTest {
 	public void testDVDNotNull07() {
 		assertNotNull(dvd7);
 	}
-	
+
 	@Test /* 빈 생성 테스트 */
 	public void testDVDNotNull08() {
 		assertNotNull(dvd8);
 	}
-	
-	
-	
+
+	@Test /* 빈 생성 테스트 */
+	public void testDVDNotNull09() {
+		assertNotNull(dvd9);
+	}
+
+	@Test /* 빈 생성 테스트 */
+	public void testDVDNotNull10() {
+		assertNotNull(dvd10);
+	}
+
 	@Test /* 빈 생성 테스트 */
 	public void testDVDPack() {
 		assertNotNull(dvdPack);
+	}
+
+	@Test
+	public void testPlay01() {
+		dvdPlayer1.play();
+		assertEquals("Playing Movie MARVEL's IronMan", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
+	}
+
+	@Test
+	public void testPlay02() {
+		dvdPlayer2.play();
+		assertEquals("Playing Movie MARVEL's IronMan", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
+	}
+
+	@Test
+	public void testPlay03() {
+		dvdPlayer3.play();
+		assertEquals("Playing Movie MARVEL's IronMan", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
+	}
+
+	@Test
+	public void testPlay04() {
+		dvdPlayer4.play();
+		assertEquals("Playing Movie MARVEL's IronMan", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
+	}
+	
+	@Test
+	public void testPlay05() {
+		dvdPlayer5.play();
+		assertEquals("Playing Movie MARVEL's IronMan", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
 	}
 
 }

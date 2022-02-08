@@ -4,6 +4,7 @@
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:c="http://www.springframework.org/schema/c"
 	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
@@ -75,5 +76,48 @@
 		<property name="title" value="Expansion Edition 01" />
 		<property name="studio" value="MARVEL" />
 	</bean>
+
+	<!-- 10. 빈 생성 : 프로퍼티 사용 2 -->
+	<bean id="avengersExpansionEdition02" class="com.poscoict.container.videosystem.BlankDisc"
+		p:title = "Expansion Edition 02"
+		p:studio = "MARVEL"
+	/>
+	
+	<!-- 11. 빈 생성 : 프로퍼티 사용 3 -->
+	<util:list id="actorList">
+		<value>Robert Downey Jr.</value>
+		<value>Scalette</value>
+		<value>Chris Evans</value>
+	</util:list>
+	<bean id="avengersExpansionEdition03" class="com.poscoict.container.videosystem.BlankDisc"
+		p:title = "Expansion Edition 02"
+		p:studio = "MARVEL"
+		p:actors-ref = "actorList"
+	/>
+	
+	<!-- 12. 빈 주입 (Wiring) : 생성자 1 -->
+	<bean id="dvdPlayer01" class="com.poscoict.container.videosystem.DVDPlayer">
+		<constructor-arg ref="ironman" />
+	</bean>
+	
+	<!-- 13. 빈 주입 (Wiring) : 생성자 2 - c-namespace의 argument 사용 (Spring 3.x 지원) -->
+	<bean id="dvdPlayer02" class="com.poscoict.container.videosystem.DVDPlayer" 
+		c:dvd-ref ="ironman"
+	/>
+	
+	<!-- 14. 빈 주입 (Wiring) : 생성자 3 - c-namespace의 index 사용 (Spring 3.x 지원) -->
+	<bean id="dvdPlayer03" class="com.poscoict.container.videosystem.DVDPlayer" 
+		c:_0-ref ="ironman"
+	/>
+	
+	<!-- 15. 빈 주입 (Wiring) : 프로퍼티 1 -->
+	<bean id="dvdPlayer04" class="com.poscoict.container.videosystem.DVDPlayer" >
+		<property name="dvd" ref="ironman" />	
+	</bean>
+	
+	<!-- 16. 빈 주입 (Wiring) : 프로퍼티 2 - p-namespace 사용 -->
+	<bean id="dvdPlayer05" class="com.poscoict.container.videosystem.DVDPlayer" 
+		p:dvd-ref = "ironman"
+	/>
 	
 </beans>

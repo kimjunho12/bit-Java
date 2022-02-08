@@ -14,42 +14,68 @@ ___
 
 + user : Observer / Test
 
-- soundSystem : auto wiring (java, xml config) - Annotation
-- videoSystem : explicit wiring (java, xml config) - Bean
+- soundSystem : auto wiring (java, xml config) - Annotation<br>
+- videoSystem : explicit wiring (java, xml config) - Bean<br>
 
 ### Tree
 ```
-📦container
- ┣ 📂src
- ┃ ┣ 📂main
- ┃ ┃ ┣ 📂java
- ┃ ┃ ┃ ┗ 📂com
- ┃ ┃ ┃ ┃ ┗ 📂poscoict
- ┃ ┃ ┃ ┃ ┃ ┗ 📂container
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂config
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂soundsystem
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜CDPlayerConfig.java
+📦src
+ ┣ 📂main
+ ┃ ┣ 📂java
+ ┃ ┃ ┗ 📂com
+ ┃ ┃ ┃ ┗ 📂poscoict
+ ┃ ┃ ┃ ┃ ┗ 📂container
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂config
  ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂soundsystem
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CDPlayer.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CompactDisc.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜HighSchoolRapper2Final.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜CDPlayerConfig.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂user
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜AppConfig01.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜AppConfig02.java
  ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂videosystem
- ┃ ┃ ┗ 📂resources
- ┃ ┃ ┃ ┗ 📂com
- ┃ ┃ ┃ ┃ ┗ 📂poscoict
- ┃ ┃ ┃ ┃ ┃ ┗ 📂container
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂config
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂soundsystem
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜CDPlayerConfig.xml
- ┃ ┗ 📂test
- ┃ ┃ ┣ 📂java
- ┃ ┃ ┃ ┗ 📂com
- ┃ ┃ ┃ ┃ ┗ 📂poscoict
- ┃ ┃ ┃ ┃ ┃ ┗ 📂container
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂soundsystem
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CDPlayerJavaConfigTest.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜CDPlayerXmlConfigTest.java
- 	 ┗ 📂resources
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂mixing
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜DvdPlayerConfig.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂soundsystem
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CDPlayer.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CompactDisc.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜HighSchoolRapper2Final.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂user
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂test
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜AppConfigTest.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜XmlConfigTest.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Friend.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜User.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜User1.java
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂videosystem
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Avengers.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜BlankDisc.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DigitalVideoDisc.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DVDPack.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DVDPlayer.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜IronMan.java
+ ┃ ┗ 📂resources
+ ┃ ┃ ┗ 📂com
+ ┃ ┃ ┃ ┗ 📂poscoict
+ ┃ ┃ ┃ ┃ ┗ 📂container
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂config
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂soundsystem
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜CDPlayerConfig.xml
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂user
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜applicationContext01.xml
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜applicationContext02.xml
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂videosystem
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜DVDPlayerConfig.xml
+ ┗ 📂test
+ ┃ ┣ 📂java
+ ┃ ┃ ┗ 📂com
+ ┃ ┃ ┃ ┗ 📂poscoict
+ ┃ ┃ ┃ ┃ ┗ 📂container
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂soundsystem
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CDPlayerJavaConfigTest.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜CDPlayerXmlConfigTest.java
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂videosystem
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DvdPlayerJavaConfigTest.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜DvdPlayerXmlConfigTest.java
+ ┃ ┗ 📂resources
 ```
 
 ### XML-Config
