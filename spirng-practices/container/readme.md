@@ -1,11 +1,21 @@
 ___
+
+## Spirng Container
+- Bean(Object) 관리 = bean 생성 + dependency 관리 (Depedency Injection : **_wiring_**)
+
+> ||Feature|`XML`|`Java`|
+> |:---:|:---:|---|---|
+> |**Auto**|Annotation, Auto Scan<br>(@Component, @Service, @Controller, @Autowired)|`<context:annotation-config />`|`@Configuration`<br>`@ComponentScan(basePackages = { "com.poscoict.container.soundsystem" })`|
+> |**Explicity**|bean|`<bean />`| : 
+
+
+
 ## IoC / Wiring
 
 + user : Observer / Test
 
 - soundSystem : auto wiring (java, xml config) - Annotation
 - videoSystem : explicit wiring (java, xml config) - Bean
-
 
 ### Tree
 ```
@@ -41,13 +51,6 @@ ___
  ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜CDPlayerXmlConfigTest.java
  	 ┗ 📂resources
 ```
-
-
-
-> ||`XML`|`Java`|
-> |:---:|:---:|:---:|
-> |Auto|scan & `@(Annotation)`|?|
-> |Explicity|bean|?|
 
 ### XML-Config
 - auto

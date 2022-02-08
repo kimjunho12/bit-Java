@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+        http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+        
+	<!-- 01. 빈 생성 : 초간단 -->
+	<bean class="com.poscoict.container.videosystem.Avengers" />
+	
+	<!-- 02. 빈 생성 : id 부여하기 -->	
+	<bean id="ironman" class="com.poscoict.container.videosystem.IronMan" />
+	
+	<!-- 03. 빈 생성 : 생성자 리터럴 사용하기1 -->
+	<bean id="avengersInfinityWar" class="com.poscoict.container.videosystem.BlankDisc" >
+		<constructor-arg name="title" value="" />
+		<constructor-arg name="studio" value="" />
+	</bean>
+	
+	<!-- 04. 빈 생성 : 생성자 리터럴 사용하기 2 -->
+	<bean id="avengersEndGame" class="com.poscoict.container.videosystem.BlankDisc"
+		c:title = "Avengers EndGame"
+		c:studio = "MARVEL"
+	/>
+	
+	<!-- 05. 빈 생성 : 생성자 인덱스 사용 -->
+	<bean id="avengersAgeOfUltron" class="com.poscoict.container.videosystem.BlankDisc"
+		c:_1 = "Avengers Age Of Ultron"
+		c:_0 = "MARVEL"
+	/>
+	
+	<!-- 06. 빈 생성 : 생성자 null argument -->
+	<bean id="avengersCaptainAmerica" class="com.poscoict.container.videosystem.BlankDisc">
+		<constructor-arg name="title" value="Avengers Captain America" />
+		<constructor-arg name="studio" value="MARVEL" />
+		<constructor-arg name="actors" > <null/> </constructor-arg>
+	</bean>
+	
+	<!-- 07. 빈 생성 : 생성자 Collection argument -->
+	<bean id="avengersDirectorEdition" class="com.poscoict.container.videosystem.BlankDisc">
+		<constructor-arg name="title" value="Avengers Director Edition" />
+		<constructor-arg name="studio" value="MARVEL" />
+		<constructor-arg name="actors" >
+			<list>
+				<value>Robert Downey Jr.</value>
+				<value>Scalette</value>
+				<value>Chris Evans</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<!-- 08. 빈 생성 : 생성자 Wiring Collection -->
+	<bean id="avengersTriplePack" class="com.poscoict.container.videosystem.DVDPack">
+		<constructor-arg name="title" value="Avengers Triple Pack" />
+		<constructor-arg name="dvds" >
+			<list>
+				<ref bean="avengersAgeOfUltron"/>
+				<ref bean="avengersInfinityWar"/>
+				<ref bean="avengersEndGame"/>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<!-- 09. 빈 생성 : 프로퍼티 사용 1 -->
+	<bean id="avengersExpansionEdition01" class="com.poscoict.container.videosystem.BlankDisc" >
+		<property name="title" value="Expansion Edition 01" />
+		<property name="studio" value="MARVEL" />
+	</bean>
+	
+</beans>
