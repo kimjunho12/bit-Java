@@ -33,7 +33,10 @@ ___
  ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜AppConfig02.java
  ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂videosystem
  ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂mixing
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜DvdPlayerConfig.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DVDConfig.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DVDPlayerConfig.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜VideoSystemConfig.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜DVDPlayerConfig.java
  ┃ ┃ ┃ ┃ ┃ ┣ 📂soundsystem
  ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CDPlayer.java
  ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CompactDisc.java
@@ -73,6 +76,9 @@ ___
  ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CDPlayerJavaConfigTest.java
  ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜CDPlayerXmlConfigTest.java
  ┃ ┃ ┃ ┃ ┃ ┗ 📂videosystem
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂mixing
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DVDPlayerMixingTest01.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜DVDPlayerMixingTest02.java
  ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DvdPlayerJavaConfigTest.java
  ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜DvdPlayerXmlConfigTest.java
  ┃ ┗ 📂resources

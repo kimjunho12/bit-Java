@@ -8,7 +8,7 @@ import com.poscoict.container.videosystem.DVDPlayer;
 import com.poscoict.container.videosystem.DigitalVideoDisc;
 
 @Configuration
-public class DvdPlayerConfig {
+public class DVDPlayerConfig {
 
 	@Bean
 	public DigitalVideoDisc avengers() {
