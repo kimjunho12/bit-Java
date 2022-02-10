@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!-- 부모 스타터 -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.5.6</version>
+		<!-- 레포지토리 부모 검색 -->
+		<relativePath />
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.poscoict</groupId>
+	<artifactId>springboot-ex</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>	<!-- 속성 설정 -->
+		<project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
+	</properties>
+
+	<dependencies>
+
+		<!-- spring boot basic dependency -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<!-- spring boot test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-test</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>springboot-ex</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
