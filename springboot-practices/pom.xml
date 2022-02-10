@@ -8,5 +8,6 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>helloworld</module>
+		<module>myapplication</module>
 	</modules>
 </project>
