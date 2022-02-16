@@ -1,0 +1,72 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>z-index</title>
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 12px;
+	margin: 10px;
+	padding: 10px;
+}
+
+ul.bullet {
+	width: 320px;
+	margin: 100px auto;
+	border: 1px solid #999;
+	border-radius: 20px 20px 20px 20px;
+	background-color: #ddd;
+	list-style-type: none;
+	list-style-image: url("");
+	background: url("images/back2.gif") no-repeat 0 0;
+}
+
+ul.bullet li {
+	padding: 10px 10px 10px 30px;
+	border: 1px solid none;
+	background: url("images/bullet1.gif") no-repeat 8px 10px;
+}
+
+.box {
+	position: absolute;
+	width: 200px;
+	height: 100px;
+	color: #fff;
+}
+
+#box-1 {
+	left: 250px;
+	top: 100px;
+	background-color: #00f;
+	z-index: 100;
+}
+
+#box-2 {
+	left: 200px;
+	top: 150px;
+	background-color: #f00;
+	z-index: 102;
+}
+</style>
+</head>
+
+<body>
+	<ul class="bullet">
+		<li>리스트의 bullet 을 백그라운드로 사용가능합니다.</li>
+		<li>리스트의 bullet 을 백그라운드로 사용가능합니다.</li>
+		<li>리스트의 bullet 을 백그라운드로 사용가능합니다.</li>
+		<li>리스트의 bullet 을 백그라운드로 사용가능합니다.</li>
+		<li>리스트의 bullet 을 백그라운드로 사용가능합니다.</li>
+		<li>리스트의 bullet 을 백그라운드로 사용가능합니다.</li>
+	</ul>
+
+	<div id="box-1" class="box">박스1 입니다.</div>
+	<div id="box-2" class="box">박스2 입니다.</div>
+
+</body>
+</html>

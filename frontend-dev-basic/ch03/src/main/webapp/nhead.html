@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+* {
+	margin: 0;
+	padding: 0
+}
+
+body {
+	font-family: "맑은 고딕" 돋움;
+	font-size: 0.75em;
+	color: #333;
+}
+
+.header {
+	width: 630px;
+	height: 100px;
+	margin: 50px auto;
+	background-color: #ddd;
+}
+
+.header .logo, .header .search-box {
+	float: left;
+}
+
+.header .logo {
+	font-size: 0;
+	width: 222px;
+	height: 52px;
+	background: #fff url("/ch03/images/nsplite.png") no-repeat 0 -158px/457px
+		434px;
+}
+
+.search-box {
+	width: 400px;
+	height: 52px;
+	background-color: #ccc;
+}
+
+.search-box input, .search-box a {
+	display: block;
+}
+
+.search-box input, .search-box .btn-search, .search-box a {
+	float: right;
+}
+</style>
+</head>
+<body>
+	<div class="header">
+		<h1 class="logo">네이버</h1>
+		<div class="search-box">
+			<div class="btn-search">
+				<button>돋보기</button>
+			</div>
+			<a id="dropdown" href="#">드롭다운</a>
+			<a id="keyboard" href="#">키보드</a>
+			<input type='text' />
+		</div>
+	</div>
+</body>
+</html>
