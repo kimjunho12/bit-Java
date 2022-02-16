@@ -9,6 +9,7 @@
 	<modules>
 		<module>ch02</module>
 		<module>ch03</module>
+		<module>ch04</module>
 	</modules>
 
 	<properties>	<!-- 속성 설정 -->
