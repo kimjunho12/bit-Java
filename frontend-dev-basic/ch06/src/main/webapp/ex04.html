@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <script src="browser-detect.js"></script>
+    <script>
+        var s = "";
+        for (prop in navigator) {
+            s += (prop + " : " + navigator[prop] + "\n");
+        }
+        console.log(s);
+
+        BrowserDetect.init();
+        console.log(BrowserDetect.browser);
+        console.log(BrowserDetect.version);
+        console.log(BrowserDetect.OS);
+    </script>
+    <title>Insert title here</title>
 </head>
+
 <body>
-	<h1>BOM(Browser Object Model)</h1>
-	<h2>4. navigator 객체</h2>
+    <h1>BOM(Browser Object Model)</h1>
+    <h2>4. navigator 객체</h2>
 </body>
+
 </html>

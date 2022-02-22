@@ -1,16 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+        var number = 10;
+        console.log(number, window.number);
+        var s = "";
+        for (prop in window) {
+            s += (prop + ":" + window[prop] + "\n");
+        }
+        console.log(s);
+
+        setTimeout(function() {
+            var popup = window.open("popup.html", "popup", "width=600, height=400")
+            setTimeout(function() {
+                // popup (자식 창의 window 객체)의 내용 바꾸기
+                // 보안 문제(Cross Domain) 때문에 같은 도메인에서만 가능
+                popup.document.write("<h1>Popup Text Changed</h1>");
+
+            }, 2000);
+
+            setTimeout(() => {
+                // popup 이동
+                popup.moveTo(200, 200);
+            }, 4000);
+
+            setTimeout(() => {
+                // popup (자식 창의 window 객체)의 JavaScript 실행
+                // 보안 문제(Cross Domain) 때문에 같은 도메인에서만 가능
+                popup.message();
+
+            }, 6000);
+
+        }, 2000);
+    </script>
 </head>
+
 <body>
-<body>
-	<h1>BOM(Browser Object Model)</h1>
-	<h2>1. window 전역 객체(Global Object)</h2>
-	<ul>
-		<li>자바스크립트가 브라우저 창(window)을 제어하기 위한 객체</li>
-		<li>자바스크립트 실행과 관련된 환경 정보에 접근이 가능한 객체(Environments, Variable Object)</li>		
-	</ul>
+
+    <body>
+        <h1>BOM(Browser Object Model)</h1>
+        <h2>1. window 전역 객체(Global Object)</h2>
+        <ul>
+            <li>자바스크립트가 브라우저 창(window)을 제어하기 위한 객체</li>
+            <li>자바스크립트 실행과 관련된 환경 정보에 접근이 가능한 객체(Environments, Variable Object)</li>
+        </ul>
+    </body>
 </body>
-</body>
-</html> 
+
+</html>
