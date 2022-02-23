@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <script>
+        var registerEventHandler = function(element, eventName, eventHandler) {
+
+            element && // element가 null이 아니면
+                element.attachEvent && // <= IE8
+                element.attachEvent('on' + eventName, eventHandler);
+
+            element && // element가 null이 아니면
+                element.addEventListener && // 표준 브라우저
+                element.addEventListener(eventName, eventHandler)
+
+        }
+
+        window.addEventListener("load", function() {
+            var el = document.getElementById("header")
+            var clickEventHandler1 = function() {
+                console.log("click1");
+            }
+            var clickEventHandler2 = function() {
+                console.log("click2");
+            }
+            var clickEventHandler3 = function() {
+                console.log("click3");
+            }
+
+            // 다중 Listener 예제
+            registerEventHandler(el, 'click', clickEventHandler1);
+            registerEventHandler(el, 'click', clickEventHandler2);
+
+            // level0도 level2를 지원
+            el.onclick = clickEventHandler3;
+
+            // 제거
+            el.removeEventListener('click', clickEventHandler2);
+
+        });
+    </script>
+    <title>Insert title here</title>
 </head>
+
 <body>
-	<h1>DOM(Document Object Model)</h1>
-	<h2>5. Event 처리</h2>
-	<h3 id='header'>Click!</h3>
+    <h1>DOM(Document Object Model)</h1>
+    <h2>5. Event 처리</h2>
+    <h3 id='header'>Click!</h3>
 </body>
+
 </html>

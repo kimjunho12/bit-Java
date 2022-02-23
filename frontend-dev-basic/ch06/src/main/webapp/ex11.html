@@ -1,14 +1,69 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <script>
+        /**
+         * 	1. 마우스
+         * 		- mouseover, mouseout
+         * 		- mousedown -> mouseup -> click
+         * 		- mousedown -> mouseup -> click x 2 => doubleclick
+         * 
+         * 	2. 키보드
+         * 		- keydown -> keyup -> keypress
+         * 
+         * 	3. form
+         * 		- submit
+         * 
+         * 	4. input
+         * 		- focut, blur, change
+         * 
+         * 	5. touch(모바일 웹)
+         * 
+         * 	[용어정리]
+         * 	1. Event Name
+         * 		load, click, mousedown, submit, ...
+         * 
+         * 	2. Event Attribute
+         * 		- DOM Event Model Level 0에서 적용
+         * 			onclick, onload, onmouseover, onblur, ...
+         * 
+         * 	3. Event Listener
+         * 
+         * 	4. Event Model
+         * 		- DOM HTMLElement의 Event Handler를 설정하는 방법에 대한 표준
+         * 		- DOM Event Model Level 0
+         * 			1) inline : Tag 안에 onclick = 'javascript code' 방식으로 이벤트를 처리하는 방법		(추천 X : 웹 표준 위배)
+         * 			2) basic : 고전적인 이벤트 처리 방식, 기본 이벤트 처리 방식								(추천 X : Event Handler를 하나밖에 설정하지 못함)
+         * 				ex> element.onclick = function() {}
+         * 
+         * 		- DOM Event Model Level 2
+         * 			Observer 패턴을 적용하여 Listener(함수, Event Handler)를 등록하는 방식
+         * 			다중 이벤트 핸들러를 등록 할 수 있다
+         * 			listener를 등록 / 제거 하는 함수 (DOM API)를 제공해야 한다.
+         * 				: MS internet Explorer(<= 8) - attachEvent/detachEvent
+         * 				: others(표준) - addEventListener/removeEventListener
+         */
+        window.addEventListener("load", function() {
+            document.getElementById("header-2").onclick = () => {
+                console.log("Event Model Level 0 - Basic");
+            }
+
+            document.getElementById("header-3").addEventListener("click", () => {
+                console.log("Event Model Level 2");
+            })
+        });
+    </script>
+    <title>Insert title here</title>
 </head>
+
 <body>
-	<h1>DOM(Document Object Model)</h1>
-	<h2>5. Event 처리</h2>
-	<h3>Event Model Level0 - Inline</h3>
-	<h3 id='header-2'>Event Model Level0 - Basic</h3>
-	<h3 id='header-3'>Event Model Level2</h3>
+    <h1>DOM(Document Object Model)</h1>
+    <h2>5. Event 처리</h2>
+    <h3 onclick='console.log("Event Model Level 0 - Inline");'>Event Model Level0 - Inline</h3>
+    <h3 id='header-2'>Event Model Level0 - Basic</h3>
+    <h3 id='header-3'>Event Model Level2</h3>
 </body>
+
 </html>

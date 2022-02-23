@@ -1,19 +1,58 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <script>
+        /**
+         * 	Event Propagation (Event Bubbling)
+         * 	특정 이벤트가 발생 했을 때, 그 이벤트가 상위/하위 엘리멘트로 전파 되는 것
+         * 	<= IE8 		: outter-div > inner-div > text
+         * 	standard 	: outter-div <ss inner-div < text
+         */
+        window.addEventListener('load', function() {
+            document
+                .getElementById('outer-div')
+                .addEventListener('click', function() {
+                    console.log('outer-div');
+                });
+            document
+                .getElementById('inner-div')
+                .addEventListener('click', function(e) {
+                    var event = e || window.event;
+
+                    // prevent event's propagation(bubbling)
+                    event.cancelBubble = true; // <= IE8
+                    event.stopPropagation && event.stopPropagation(); //standard browser
+
+                    console.log('inner-div');
+                });
+            document
+                .getElementById('header')
+                .addEventListener('click', function() {
+                    console.log('header');
+                });
+            document
+                .getElementById('text')
+                .addEventListener('click', function() {
+                    console.log('text');
+                });
+        });
+    </script>
+    <title>Insert title here</title>
 </head>
+
 <body>
-	<h1>DOM(Document Object Model)</h1>
-	<h2>7. Event Propagation(Bubbling)</h2>
-	
-	<div id='outer-div'>
-		<div id='inner-div'>
-			<h1 id='header'>
-				<span id='text'>text</span>
-			</h1>
-		</div>
-	</div>
+    <h1>DOM(Document Object Model)</h1>
+    <h2>7. Event Propagation(Bubbling)</h2>
+
+    <div id='outer-div'>
+        <div id='inner-div'>
+            <h1 id='header'>
+                <span id='text'>text</span>
+            </h1>
+        </div>
+    </div>
 </body>
+
 </html>
