@@ -58,14 +58,27 @@
         }
     </style>
     <script type="text/javascript">
-        // DOM Event Model Level 0 : Inline
-        var liSelected = null;
-        var onTabClicked = function(li) {
-            li.className = "selected"
-            if (liSelected != null && liSelected != li) {
-                liSelected.className = "";
+        // DOM Event Model Level 0 : Basic
+        // JavaScript code (DOM API)로 만 작성
+        var onTabClicked = function() {
+            // unselect
+            var liSelected = document.getElementsByClassName('selected');
+
+            (liSelected.length === 1) && (liSelected[0].className = "");
+
+            // select
+            this.className = 'selected';
+        }
+        window.onload = function() {
+            var divTabBox = document.getElementsByClassName('tab-box')[0];
+            var ul = divTabBox.childNodes[1];
+
+            var liTabs = ul.getElementsByTagName('li');
+
+            for (var i = 0; i < liTabs.length; i++) {
+                liTabs[i].onclick = onTabClicked;
             }
-            liSelected = li;
+
         }
     </script>
 </head>
@@ -73,11 +86,11 @@
 <body>
     <div class="tab-box">
         <ul>
-            <li onclick="onTabClicked(this);">메뉴 1</li>
-            <li onclick="onTabClicked(this);">메뉴 2</li>
-            <li onclick="onTabClicked(this);">메뉴 3</li>
-            <li onclick="onTabClicked(this);">메뉴 4</li>
-            <li onclick="onTabClicked(this);">메뉴 5</li>
+            <li>메뉴 1</li>
+            <li>메뉴 2</li>
+            <li>메뉴 3</li>
+            <li>메뉴 4</li>
+            <li>메뉴 5</li>
         </ul>
         <div>
             탭뷰입니다.

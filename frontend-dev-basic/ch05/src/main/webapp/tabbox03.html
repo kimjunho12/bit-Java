@@ -57,27 +57,21 @@
             background-color: #fc6;
         }
     </style>
-    <script type="text/javascript">
-        // DOM Event Model Level 0 : Inline
-        var liSelected = null;
-        var onTabClicked = function(li) {
-            li.className = "selected"
-            if (liSelected != null && liSelected != li) {
-                liSelected.className = "";
-            }
-            liSelected = li;
-        }
+    <script type="text/javascript" src="tabbox.js">
+    </script>
+    <script>
+        TabBox.init();
     </script>
 </head>
 
 <body>
     <div class="tab-box">
         <ul>
-            <li onclick="onTabClicked(this);">메뉴 1</li>
-            <li onclick="onTabClicked(this);">메뉴 2</li>
-            <li onclick="onTabClicked(this);">메뉴 3</li>
-            <li onclick="onTabClicked(this);">메뉴 4</li>
-            <li onclick="onTabClicked(this);">메뉴 5</li>
+            <li>메뉴 1</li>
+            <li>메뉴 2</li>
+            <li>메뉴 3</li>
+            <li>메뉴 4</li>
+            <li>메뉴 5</li>
         </ul>
         <div>
             탭뷰입니다.
