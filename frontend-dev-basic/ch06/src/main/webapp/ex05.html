@@ -1,13 +1,57 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <script>
+        /**
+         *	용어 정리
+         *	1. 태그 (Tag)
+         *		- HTML 문서 안에서 텍스트나 콘텐츠를 정의할 때 사용하는 마크업
+         *
+         *	2. 문서 객체 (Document Object)
+         *		- DOM (Document Object Model)
+         *		- 구현 Tree의 구성 노드는 HTMLElement Object Type 이다.
+         *
+         *		- JavaScript에서 접근하고 조작 (document라는 이름으로)
+         *	3. 노드 (Node)
+         *		- DOM Tree의 각각의 요소
+         */
+
+        var el = document.getElementById("header-3");
+        console.log("Before DOM Loaded: " + el);
+
+        // window.onload = function() {
+        //     console.log("DOM Loaded");
+        //     var el = document.getElementById("header-3");
+        //     console.log("After DOM Loaded: " + el);
+        // }
+
+        // 다수의 listener를 등록 가능
+        window.addEventListener("load", () => {
+            console.log("DOM Loaded");
+            var el = document.getElementById("header-3");
+            console.log("After DOM Loaded: " + el);
+        });
+
+        window.addEventListener("load", () => {
+            console.log("Load 2");
+        });
+    </script>
+    <title>Insert title here</title>
 </head>
+
 <body>
-	<h1>DOM(Document Object Model)</h1>
-	<h2>1. HTML Element(Tag)</h2>
-	<h3 id="header-3">Step1</h3>
-	<h3>Step3</h3>
+    <h1>DOM(Document Object Model)</h1>
+    <h2>1. HTML Element(Tag)</h2>
+    <h3 id="header-3">Step1</h3>
+    <script>
+        alert("Step2");
+    </script>
+    <h3>Step3</h3>
+    <script>
+        alert("Step4");
+    </script>
 </body>
+
 </html>

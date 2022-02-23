@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <script>
+        window.addEventListener("load", () => {
+            var imgElement = document.createElement("img");
+
+            // (표준:property + 비표준:property X) 속성 (attribute)을 읽기 / 쓰기 위해서 setAttribute/getAttribute를 사용
+            imgElement.setAttribute('src', 'https://w.namu.la/s/6367bd7cd9b0ce86ffee2eca96363d667424c865084f0ac189c850a5ec8b517e051be5bcbc851eff1f259f1b1336cc97f4ec9d59ad1f89796333d6e8d10f80ce5898b109fb767a7c62170f7120e6c67f');
+            imgElement.setAttribute('style', 'width: 200px');
+            imgElement.setAttribute('alt', "Google image");
+            imgElement.setAttribute('title', "google~");
+
+            imgElement['no'] = 10; // property
+            imgElement.setAttribute('data-name', 'dooly') // 비표준 속성 (property X) //사용시 data- 를 달아준다
+
+            console.log(imgElement.no, ':', imgElement['no'], ':', imgElement.getAttribute('no')); // 10 ':' 10 ':' null
+            console.log(imgElement.alt, ':', imgElement['data-name'], ':', imgElement.getAttribute('data-name'), ':', imgElement.name); // Google image : undefined : dooly : 
+
+            setTimeout(() => {
+                document.body.appendChild(imgElement);
+            }, 2000);
+        });
+    </script>
+    <title>Insert title here</title>
 </head>
+
 <body>
-	<h1>DOM(Document Object Model)</h1>
-	<h2>3. HTML Element 속성 조작하기2</h2>
+    <h1>DOM(Document Object Model)</h1>
+    <h2>3. HTML Element 속성 조작하기2</h2>
 </body>
+
 </html>

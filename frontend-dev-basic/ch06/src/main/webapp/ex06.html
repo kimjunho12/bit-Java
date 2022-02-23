@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <script>
+        window.addEventListener("load", function() {
+            var h3Element = document.createElement("h3");
+            var textNode = document.createTextNode("Hello DOM!");
+
+            h3Element.append(textNode);
+
+            setTimeout(() => {
+                document.body.append(h3Element);
+            }, 2000);
+
+        });
+    </script>
+    <title>Insert title here</title>
 </head>
+
 <body>
-	<h1>DOM(Document Object Model)</h1>
-	<h2>2. HTML Element 추가1</h2>
+    <h1>DOM(Document Object Model)</h1>
+    <h2>2. HTML Element 추가1</h2>
 </body>
+
 </html>
