@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
-<script>
-$(function(){
-	setTimeout(function(){
-	}, 1000);
-});
-</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+    <script>
+        $(function() {
+            setTimeout(function() {
+                var html = "<strong>" + "가나다라" + "</strong>"; // 
+                $("#p1").prepend(html); // 앞에  붙이기
+            }, 1000);
+        });
+    </script>
 </head>
+
 <body>
-	<h1>DOM 조작 API - prepend()</h1>
-	
-	<p id="p1">
-		마바사아자차카타파하
-	</p>
+    <h1>DOM 조작 API - prepend() : 생성</h1>
+
+    <p id="p1">
+        마바사아자차카타파하
+    </p>
 </body>
+
 </html>

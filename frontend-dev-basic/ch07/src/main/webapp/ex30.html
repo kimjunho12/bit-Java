@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="./jquery/jquery-3.6.0.js"></script>
-<script type="text/javascript">
-$(function() {
-	setTimeout(function(){
-	}, 2000);
-});  
-</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="./jquery/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            setTimeout(function() {
+                $("p").replaceWith("<h2> 변경 후 </h2>");
+            }, 2000);
+        });
+    </script>
 </head>
+
 <body>
-	<h1>DOM 조작 API - replaceWith()</h1>
-	
-	<p>변경전</p>
+    <h1>DOM 조작 API - replaceWith() : 태그 까지 모두 변경</h1>
+
+    <p>변경전</p>
 </body>
+
 </html>

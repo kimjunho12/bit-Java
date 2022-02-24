@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="./jquery/jquery-3.6.0.js"></script>
-<script type="text/javascript">
-$(function() {
-	setTimeout(function(){
-	}, 2000);
-});  
-</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="./jquery/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            setTimeout(function() {
+                $("h2, p")
+                    .wrapAll("<div>")
+                    .parent() // travers api
+                    .css({
+                        border: "2px solid #ccc"
+                    });
+            }, 2000);
+        });
+    </script>
 </head>
+
 <body>
-	<h1>DOM 조작 API - wrapAll()</h1>
-	
-	<h2>타이틀입니다.</h2>
-	<p>내용입니다.</p>
+    <h1>DOM 조작 API - wrapAll() : 그룹으로 묶기(감싸기)</h1>
+
+    <h2>타이틀입니다.</h2>
+    <p>내용입니다.</p>
 </body>
+
 </html>

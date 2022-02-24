@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
-<script>
-$(function(){
-	setTimeout(function(){
-	}, 1000);
-});
-</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+    <script>
+        $(function() {
+            setTimeout(function() {
+                $("#p2 strong").prependTo("#p1");
+            }, 1000);
+        });
+    </script>
 </head>
+
 <body>
-	<h1>DOM 조작 API - prependTo()</h1>
-	
-	<p id="p1">EFGHIJKLMNOPQRSTUVWXYZ</p>
-	<p id="p2"><strong>ABCD</strong></p>
+    <h1>DOM 조작 API - prependTo() : 앞으로 이동</h1>
+
+    <p id="p1">EFGHIJKLMNOPQRSTUVWXYZ</p>
+    <p id="p2"><strong>ABCD</strong></p>
 </body>
+
 </html>
