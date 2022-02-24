@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+    <script>
+        $(function() {
+            var $obj = $(".par");
+
+            console.log($obj.length); // 2
+            console.log(typeof($obj) + " : " + ($obj instanceof Array)); // 배열이 아니라 유사배열
+            console.log($obj[0]); // HTMLElement 접근가능
+            console.log($obj.get(0)); // HTMLElement 접근가능
+
+            $obj.css('color', 'red');
+            $obj.click(function() {
+                // 이벤트 핸들러에서의 this는 jQuery Object가 아닌 HTMLElement
+                console.log("clicked : " + this);
+
+                // 만약, 핸들러 안에서 이벤트 대상이 되는 this(HTMLElement)의 CSS, DOM조작을 해야하는 경우
+                // this.style.color = 'blue';
+                // jQuery Object의 거의 모든 API 함수(예외: travers)는 호출한 jQuery Object를 반환 -> 함수 체인(chain)이 가능
+                $(this).css('color', 'blue');
+            })
+            $obj.click(() => {
+                console.log("clicked : " + this);
+            })
+
+        });
+    </script>
+</head>
+
+<body>
+    <h1 id="header">Simple jQuery 만들기2</h1>
+
+    <p class='par'>문장1</p>
+    <p>문장2</p>
+    <p class='par'>문장3</p>
+    <p>문장4</p>
+</body>
+
+</html>
