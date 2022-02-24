@@ -1,24 +1,80 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>sample1</title>
-<link href='image-viewer.css' type='text/css' rel="stylesheet"/>
-<script type="text/javascript" src="./jquery/jquery-3.6.0.js"></script>
-<script type="text/javascript" src="image-viewer.js"></script>
-<script>
-	imageViewer.init();
-</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>sample1</title>
+    <link href='image-viewer.css' type='text/css' rel="stylesheet" />
+    <script type="text/javascript" src="./jquery/jquery-3.6.0.js"></script>
+    <!-- <script type="text/javascript" src="image-viewer.js"></script> -->
+    <script>
+        // imageViewer.init();
+
+        var images = [{
+            name: "국화",
+            file: "Chrysanthemum.jpg"
+        }, {
+            name: "사막",
+            file: "Desert.jpg"
+        }, {
+            name: "수국",
+            file: "Hydrangeas.jpg"
+        }, {
+            name: "해파리",
+            file: "Jellyfish.jpg"
+        }, {
+            name: "코알라",
+            file: "Koala.jpg"
+        }, {
+            name: "등대",
+            file: "Lighthouse.jpg"
+        }, {
+            name: "펭귄",
+            file: "Penguins.jpg"
+        }, {
+            name: "툴립",
+            file: "Tulips.jpg"
+        }]
+
+        var imageChange = function() {
+            var index = Math.floor(Math.random() * images.length);
+            $(".image-viewer img").attr({
+                alt: images[index].name,
+                src: 'images/' + images[index].file
+            })
+        };
+
+        var slide;
+        var isSliding = false;
+        var onClickedSlideShow = function() {
+            isSliding = !isSliding;
+            if (isSliding) {
+                $("#btn-slideshow").text("슬라이드쇼 중지");
+                slide = setInterval(imageChange, 3000);
+            } else {
+                $("#btn-slideshow").text("슬라이드쇼 시작");
+                clearInterval(slide)
+            }
+        }
+
+        $(function() {
+            imageChange();
+            $("#btn-change").click(imageChange);
+            $("#btn-slideshow").click(onClickedSlideShow);
+        });
+    </script>
 </head>
+
 <body>
-	<div class="image-viewer">
-		<div class="buttons">
-			<button id="btn-change">이미지변경</button>
-			<button id="btn-slideshow">슬라이드쇼 시작</button>
-		</div>
-		<div>
-			<img/>
-		</div>
-	</div>
+    <div class="image-viewer">
+        <div class="buttons">
+            <button id="btn-change">이미지변경</button>
+            <button id="btn-slideshow">슬라이드쇼 시작</button>
+        </div>
+        <div>
+            <img/>
+        </div>
+    </div>
 </body>
+
 </html>
