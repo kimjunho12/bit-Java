@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
-<script>
-$(function(){
-	setTimeout(function(){
-	}, 1000);
-});
-</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+    <script>
+        $(function() {
+            setTimeout(function() {
+                $("#first, #third").css("font-weight", "bold");
+            }, 1000);
+        });
+    </script>
 </head>
+
 <body>
-	<h1>선택자 - 그룹</h1>
-	<ul>
-		<li id="first">텍스트 텍스트 텍스트 텍스트 텍스트</li>
-		<li id="second">텍스트 텍스트 텍스트 텍스트 텍스트</li>
-		<li id="third">텍스트 텍스트 텍스트 텍스트 텍스트</li>
-		<li id="fourth">텍스트 텍스트 텍스트 텍스트 텍스트</li>
-	</ul>
+    <h1>선택자 - 그룹</h1>
+    <ul>
+        <li id="first">텍스트 텍스트 텍스트 텍스트 텍스트</li>
+        <li id="second">텍스트 텍스트 텍스트 텍스트 텍스트</li>
+        <li id="third">텍스트 텍스트 텍스트 텍스트 텍스트</li>
+        <li id="fourth">텍스트 텍스트 텍스트 텍스트 텍스트</li>
+    </ul>
 </body>
+
 </html>
