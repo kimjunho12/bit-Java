@@ -22,10 +22,22 @@
 						<value>text/html; charset=UTF-8</value>
 					</list>
 				</property>
-
 			</bean>
 
 			<!-- XML message Converter -->
+			<!-- 1. Marshalling : 데이터(Object)를 xml로 만드는 것 2. Unmarshalling : xml 데이터를 
+				데이터 형태(Object)로 만드는 것 3. Java 지원 1) OXM (Object XML Mapping) : xml 데이터와 객체를 
+				매핑 -> MarshaillingHttpMessageConverter 2) JAXB (Java Architecture for XML 
+				Binding) : OXM을 쉽게 도와주는 Tool -> Jaxb2RootElementHttpMessageConverter - Annotation 
+				기반으로 marshalling/unmarshalling -> JAXBAnnotation(@XmlElementRoot) -->
+			<bean
+				class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>application/xml; charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
 
 
 			<!-- JSON message Converter -->
@@ -36,7 +48,6 @@
 						<value>application/json; charset=UTF-8</value>
 					</list>
 				</property>
-
 			</bean>
 
 		</mvc:message-converters>
