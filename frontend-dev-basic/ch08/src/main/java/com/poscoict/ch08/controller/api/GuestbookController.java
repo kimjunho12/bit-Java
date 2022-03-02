@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,7 +30,7 @@ public class GuestbookController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public JsonResult ex01(@RequestParam(value = "sn", required = true, defaultValue = "-1") Long sn ) {
+	public JsonResult ex02(@RequestParam(value = "sn", required = true, defaultValue = "-1") Long sn ) {
 		// guestbookService.getMessageList(sn);
 		List<GuestbookVo> list = new ArrayList<>();
 		GuestbookVo vo1 = new GuestbookVo();
@@ -49,6 +50,25 @@ public class GuestbookController {
 		list.add(vo3);
 		
 		return JsonResult.success(list);
+	}
+	
+	@ResponseBody
+	@RequestMapping("/delete/{no}")
+	public JsonResult ex03(@PathVariable(name = "no") Long no, @RequestParam(value = "password", required = true, defaultValue = "") String password) {
+		
+		JsonResult jsonResult;
+		
+		// boolean result = guestbookService.deleteMessage(no, password);
+		
+		Long data = 0L;
+		// 1. 삭제가 안된 경우 (실패)
+//		if (result == false)
+		data = -1L;
+		
+		// 2. 삭제가 된 경우 (성공)
+		data = no;
+		
+		return JsonResult.success(data);
 	}
 
 }

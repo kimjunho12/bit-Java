@@ -11,4 +11,7 @@ ResponseEntity(JsonResult)
     - POST /mysite03/api/guestbook
     
 2. list messages
-    - GET /mysite03/api/guestbook/list
+    - GET /mysite03/api/guestbook?sn=12
+    
+3. delete message
+    - DELETE /mysite03/api/guestbook/{no}
