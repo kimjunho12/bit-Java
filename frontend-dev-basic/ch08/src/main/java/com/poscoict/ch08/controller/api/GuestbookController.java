@@ -17,17 +17,17 @@ import com.poscoict.ch08.controller.vo.GuestbookVo;
 @Controller
 @RequestMapping("/api/guestbook")
 public class GuestbookController {
-	
+
 	@ResponseBody
 	@RequestMapping("/add")
 	public JsonResult ex01(@RequestBody GuestbookVo vo) {
 		// guestbookService.addMessage(vo);
 		vo.setNo(1L);
 		vo.setPassword("");
-		
+
 		return JsonResult.success(vo);
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public JsonResult ex02(@RequestParam(value = "sn", required = true, defaultValue = "-1") Long sn ) {
@@ -48,26 +48,26 @@ public class GuestbookController {
 		vo3.setName("고길동");
 		vo3.setMessage("집에선 안피기로 했잖아");
 		list.add(vo3);
-		
+
 		return JsonResult.success(list);
 	}
-	
+
 	@ResponseBody
 	@RequestMapping("/delete/{no}")
 	public JsonResult ex03(@PathVariable(name = "no") Long no, @RequestParam(value = "password", required = true, defaultValue = "") String password) {
-		
+
 		JsonResult jsonResult;
-		
+
 		// boolean result = guestbookService.deleteMessage(no, password);
-		
+
 		Long data = 0L;
 		// 1. 삭제가 안된 경우 (실패)
 //		if (result == false)
 		data = -1L;
-		
+
 		// 2. 삭제가 된 경우 (성공)
 		data = no;
-		
+
 		return JsonResult.success(data);
 	}
 

@@ -21,6 +21,6 @@
 <body>
 	<h1>AJAX Test : HTML Format</h1>
 	<button>변경</button>
-	<p>변경전	</p>
+	<p>변경전</p>
 </body>
 </html>

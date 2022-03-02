@@ -7,9 +7,9 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
-    <script type="text/javascript">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
         // DOM Load Event
         // 1. load : DOM, CSSOM, Images 모두 로딩
         // 2. DOMContentLoaded : DOM만 로딩
@@ -65,9 +65,9 @@
 </head>
 
 <body>
-    <h1>AJAX Test : JSON Format - XmlHttpRequest 직접 사용</h1>
-    <button>데이터 가져오기</button>
-    <div id="data"></div>
+	<h1>AJAX Test : JSON Format - XmlHttpRequest 직접 사용</h1>
+	<button>데이터 가져오기</button>
+	<div id="data"></div>
 </body>
 
 </html>

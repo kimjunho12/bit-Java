@@ -2,32 +2,33 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 
 <body>
-    <h1>BOM(Browser Object Model)</h1>
-    <h2>3. localtion 객체</h2>
-    <h3>Refresh Page 하는 방법</h3>
+	<h1>BOM(Browser Object Model)</h1>
+	<h2>3. localtion 객체</h2>
+	<h3>Refresh Page 하는 방법</h3>
 
-    <!-- 방법 1 -->
-    <button onclick='location = location;'>refresh 01</button>
+	<!-- 방법 1 -->
+	<button onclick='location = location;'>refresh 01</button>
 
-    <!-- 방법 2 -->
-    <button onclick='location.href = location.href;'>refresh 02</button>
+	<!-- 방법 2 -->
+	<button onclick='location.href = location.href;'>refresh 02</button>
 
-    <!-- 방법 3 -->
-    <button onclick='location.assign("");'>refresh 03</button>
+	<!-- 방법 3 -->
+	<button onclick='location.assign("");'>refresh 03</button>
 
-    <!-- 방법 4 -->
-    <button onclick='location.replace(location);'>refresh 04</button>
+	<!-- 방법 4 -->
+	<button onclick='location.replace(location);'>refresh 04</button>
 
-    <!-- 방법 5 (ctrl + F5) -->
-    <button onclick='location.reload();'>refresh 05</button>
+	<!-- 방법 5 (ctrl + F5) -->
+	<button onclick='location.reload();'>refresh 05</button>
 
-    <h3>Redirect 하는 방법</h3>
-    <button onclick='location.href="https://www.poscoict.com";'>Redirect to 우리회사</button>
+	<h3>Redirect 하는 방법</h3>
+	<button onclick='location.href="https://www.poscoict.com";'>Redirect
+		to 우리회사</button>
 </body>
 
 </html>

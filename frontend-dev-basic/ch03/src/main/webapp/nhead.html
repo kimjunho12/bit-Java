@@ -2,156 +2,153 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            font-family: "맑은 고딕" 돋움;
-            font-size: 0.75em;
-            color: #333;
-        }
-        
-        .header {
-            width: fit-content;
-            height: 100px;
-            margin: 50px auto;
-        }
-        
-        .header .logo,
-        .header .search-box {
-            float: left;
-            margin-left: 20px;
-        }
-        
-        .header .logo {
-            font-size: 0;
-            width: 222px;
-            height: 52px;
-            background: #fff url("images/nsplite.png") no-repeat 0 -158px/457px 434px;
-        }
-        
-        .search-box {
-            position: relative;
-            width: 582px;
-            height: 52px;
-            border: 2px solid #19ce60;
-            -webkit-border-radius: 2px;
-            border-radius: 2px
-        }
-        
-        .search-box input,
-        .search-box a {
-            display: block;
-        }
-        
-        .search-box input,
-        .search-box .btn-search,
-        .search-box a {
-            float: right;
-        }
-        
-        .input_text {
-            width: 480px;
-            height: 24px;
-            padding: 13px 15px;
-            margin: 1px 48px 1px 1px;
-            background-color: #fff;
-            font-size: 18px;
-            line-height: 24px;
-            color: #000;
-            border: none;
-            font-weight: 700;
-            outline: 0
-        }
-        
-        #keyboard {
-            display: inline-block;
-            width: 20px;
-            height: 12px;
-            background-position: -43px -156px;
-            background-repeat: no-repeat;
-            vertical-align: top
-        }
-        
-        .ico_arr,
-        .icon_keyboard,
-        .ico_search_submit {
-            background-image: url(images/nsplite.png);
-            -webkit-background-size: 457px 434px;
-            background-size: 457px 434px;
-            background-repeat: no-repeat;
-        }
-        
-        .icon_keyboard {
-            position: absolute;
-            top: 50%;
-            left: 80%;
-            display: inline-block;
-            width: 20px;
-            height: 12px;
-            background-position: -420px -395px;
-            vertical-align: top;
-            margin: -6px 0 0 -10px;
-        }
-        
-        .ico_arr {
-            position: absolute;
-            top: 50%;
-            left: 85%;
-            display: inline-block;
-            width: 10px;
-            height: 5px;
-            background-position: -408px -77px;
-            vertical-align: top;
-            margin: -2px 0 0 -5px
-        }
-        
-        .btn-search {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            width: 56px;
-            background-color: #19ce60;
-            border-radius: 0 2px 2px 0;
-            cursor: pointer
-        }
-        
-        .ico_search_submit {
-            position: absolute;
-            top: 25%;
-            right: 26%;
-            display: inline-block;
-            width: 22px;
-            height: 22px;
-            background-position: -420px 0;
-            background-repeat: no-repeat;
-            vertical-align: top;
-            border: none;
-            background-color: transparent;
-            cursor: pointer
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "맑은 고딕" 돋움;
+	font-size: 0.75em;
+	color: #333;
+}
+
+.header {
+	width: fit-content;
+	height: 100px;
+	margin: 50px auto;
+}
+
+.header .logo, .header .search-box {
+	float: left;
+	margin-left: 20px;
+}
+
+.header .logo {
+	font-size: 0;
+	width: 222px;
+	height: 52px;
+	background: #fff url("images/nsplite.png") no-repeat 0 -158px/457px
+		434px;
+}
+
+.search-box {
+	position: relative;
+	width: 582px;
+	height: 52px;
+	border: 2px solid #19ce60;
+	-webkit-border-radius: 2px;
+	border-radius: 2px
+}
+
+.search-box input, .search-box a {
+	display: block;
+}
+
+.search-box input, .search-box .btn-search, .search-box a {
+	float: right;
+}
+
+.input_text {
+	width: 480px;
+	height: 24px;
+	padding: 13px 15px;
+	margin: 1px 48px 1px 1px;
+	background-color: #fff;
+	font-size: 18px;
+	line-height: 24px;
+	color: #000;
+	border: none;
+	font-weight: 700;
+	outline: 0
+}
+
+#keyboard {
+	display: inline-block;
+	width: 20px;
+	height: 12px;
+	background-position: -43px -156px;
+	background-repeat: no-repeat;
+	vertical-align: top
+}
+
+.ico_arr, .icon_keyboard, .ico_search_submit {
+	background-image: url(images/nsplite.png);
+	-webkit-background-size: 457px 434px;
+	background-size: 457px 434px;
+	background-repeat: no-repeat;
+}
+
+.icon_keyboard {
+	position: absolute;
+	top: 50%;
+	left: 80%;
+	display: inline-block;
+	width: 20px;
+	height: 12px;
+	background-position: -420px -395px;
+	vertical-align: top;
+	margin: -6px 0 0 -10px;
+}
+
+.ico_arr {
+	position: absolute;
+	top: 50%;
+	left: 85%;
+	display: inline-block;
+	width: 10px;
+	height: 5px;
+	background-position: -408px -77px;
+	vertical-align: top;
+	margin: -2px 0 0 -5px
+}
+
+.btn-search {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 56px;
+	background-color: #19ce60;
+	border-radius: 0 2px 2px 0;
+	cursor: pointer
+}
+
+.ico_search_submit {
+	position: absolute;
+	top: 25%;
+	right: 26%;
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	background-position: -420px 0;
+	background-repeat: no-repeat;
+	vertical-align: top;
+	border: none;
+	background-color: transparent;
+	cursor: pointer
+}
+</style>
 </head>
 
 <body>
-    <div class="header">
-        <h1 class="logo">네이버</h1>
-        <div class="search-box">
-            <div class="btn-search">
-                <button class="ico_search_submit"></button>
-            </div>
-            <a id="dropdown" href="#"><span class="ico_arr"></span></a>
-            <a id="keyboard" href="#"><span class="icon_keyboard"></span></a>
-            <input id="query" type="text" title="검색어 입력" maxlength="255" class="input_text" tabindex="1" accesskey="s" placeholder="검색어를 입력해 주세요." />
-        </div>
-    </div>
-    <hr>
+	<div class="header">
+		<h1 class="logo">네이버</h1>
+		<div class="search-box">
+			<div class="btn-search">
+				<button class="ico_search_submit"></button>
+			</div>
+			<a id="dropdown" href="#"><span class="ico_arr"></span></a> <a
+				id="keyboard" href="#"><span class="icon_keyboard"></span></a> <input
+				id="query" type="text" title="검색어 입력" maxlength="255"
+				class="input_text" tabindex="1" accesskey="s"
+				placeholder="검색어를 입력해 주세요." />
+		</div>
+	</div>
+	<hr>
 </body>
 
 </html>

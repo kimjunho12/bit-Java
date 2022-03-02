@@ -2,23 +2,22 @@
 <html>
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>태그 선택자</title>
-	<style type="text/css">
-		input {
-			background: #fff;
-			padding: 5px;
-			border: 2px solid #03cf5d;
-			outline: none;
-			text-align: center;
-		}
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>태그 선택자</title>
+<style type="text/css">
+input {
+	background: #fff;
+	padding: 5px;
+	border: 2px solid #03cf5d;
+	outline: none;
+	text-align: center;
+}
 
-		input.focused#user-id {
-			background-color: #e1e6f6;
-		}
-		
-	</style>
-	<script type="text/javascript">
+input.focused#user-id {
+	background-color: #e1e6f6;
+}
+</style>
+<script type="text/javascript">
 		function onFocus(el) {
 			// el.style.backgroundColor = "#e1e6f6";
 			el.className = "focused";
@@ -37,14 +36,11 @@
 
 <body>
 	<form action="">
-		<input
-		onfocus='changeBackground(this, "focused")'
-		onblur='changeBackground(this, "")'
-		class=""
-		id="user-id"
-		type="text" placeholder="아이디" />
-		<br> <br>
-		<input onfocus="onFocus(this);" onblur="onBlur(this)" type="password" placeholder="패스워드" />
+		<input onfocus='changeBackground(this, "focused")'
+			onblur='changeBackground(this, "")' class="" id="user-id" type="text"
+			placeholder="아이디" /> <br> <br> <input
+			onfocus="onFocus(this);" onblur="onBlur(this)" type="password"
+			placeholder="패스워드" />
 	</form>
 </body>
 

@@ -25,7 +25,7 @@ public class ApiController {
 	public String html() {
 		return "<h1> AJAX 연습 </h1><p>html 데이터</p>";
 	}
-	
+
 	@ResponseBody
 	@RequestMapping("/xml")
 	public Object xml()	{

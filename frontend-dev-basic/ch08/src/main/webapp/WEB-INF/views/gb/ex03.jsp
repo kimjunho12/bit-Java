@@ -12,7 +12,8 @@
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet"
 	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/jquery/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -124,16 +125,17 @@
 			<input type="submit" value="보내기" />
 		</form>
 		<ul id="list-guestbook">
-			
+
 		</ul>
 	</div>
 	<div id="dialog-delete-form" title="메세지 삭제" style="display: none">
 		<p class="validateTips normal">작성시 입력했던 비밀번호를 입력하세요.</p>
 		<p class="validateTips error" style="display: none">비밀번호가 틀립니다.</p>
 		<form>
-			<input type="password" id="password-delete" value="" class="text ui-widget-content ui-corner-all">
-			<input type="hidden" id="hidden-no" value="">
-			<input type="submit" tabindex="-1" style="position: absolute; top: -1000px">
+			<input type="password" id="password-delete" value=""
+				class="text ui-widget-content ui-corner-all"> <input
+				type="hidden" id="hidden-no" value=""> <input type="submit"
+				tabindex="-1" style="position: absolute; top: -1000px">
 		</form>
 	</div>
 	<div id="dialog-message" title="" style="display: none">

@@ -74,7 +74,7 @@
 			<input type="submit" value="보내기" />
 		</form>
 		<ul id="list-guestbook">
-			
+
 		</ul>
 	</div>
 	<div id="dialog-delete-form" title="메세지 삭제" style="display: none">
