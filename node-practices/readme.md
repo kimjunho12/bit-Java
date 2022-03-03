@@ -133,7 +133,7 @@ _웹 애플리케이션 만들어보기 (그냥)_
   1) [app01](./helloweb-ex01/app01.js) : http - core module 기반
   2) [app02](./helloweb-ex01/app02.js) : http, fs - core module 기반
   3) [app03](./helloweb-ex01/app03.js) : connect, serve-static - npm package 기반
-  4) app04 : connect, serve-static, connect-route - npm package 기반
+  4) [app04](./helloweb-ex01/app04.js) : connect, serve-static, connect-route - npm package 기반
 
 ### 8. helloweb-ex02 (express)
 _웹 애플리케이션 만들어보기 (express 프레임워크)_
