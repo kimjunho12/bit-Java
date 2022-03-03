@@ -126,7 +126,14 @@ _Node(JavaScript) Project (FE/BE Application, Package) 생성_
        - 로컬 배포
 
 ### 6. npmjs.com (npm registry)에 내 패키지 배포 (생략, https://)
+_원격 배포_
 
 ### 7. helloweb-ex01 (맨바닥)
+_웹 애플리케이션 만들어보기 (그냥)_
+  1) [app01](./helloweb-ex01/app01.js) : http - core module 기반
+  2) app02 : http, fs - core module 기반
+  3) app03 : connect, serve-static - npm package 기반
+  4) app04 : connect, serve-static, connect-route - npm package 기반
 
 ### 8. helloweb-ex02 (express)
+_웹 애플리케이션 만들어보기 (express 프레임워크)_
