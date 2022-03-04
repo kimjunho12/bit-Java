@@ -1,0 +1,25 @@
+{
+    "name": "ex05",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "npx webpack serve --progress",
+        "build": "npx webpack",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "css-loader": "^6.6.0",
+        "style-loader": "^3.3.1",
+        "webpack": "^5.70.0",
+        "webpack-cli": "^4.9.2",
+        "webpack-dev-server": "^4.7.4"
+    },
+    "dependencies": {
+        "node-sass": "^7.0.1",
+        "sass-loader": "^12.6.0"
+    }
+}
