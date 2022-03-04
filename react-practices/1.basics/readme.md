@@ -86,10 +86,10 @@ _create-react-app(cra)으로 React Application 빨리 만들어보기_
 ![cra_react_start](https://images.velog.io/images/98kimjh/post/657f84a1-b7fe-47ef-81d6-c40e6882ef56/image.png)
 </details>
 
-### ex01
+### [ex01](./ex01/)
 _전통적인 DOM API 기반의 애플리케이션_ 
 
-### ex02
+### [ex02](./ex02/)
 _애플리케이션1 : 애플리케이션 분리_
 
 ### ex03
