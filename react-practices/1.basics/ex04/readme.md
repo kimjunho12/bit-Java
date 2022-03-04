@@ -17,4 +17,7 @@ _애플리케이션 번들링 (bundling)_
    
    <br>
 4. 자바 스크립트 뚠만 아니라 다양한 에셋(image, css, font)들도 모듈로 취급
-5. 설치
+5. 설치  
+   `$ npm i -D webpack webpack-cli`  
+   `$ npm .\node_modules\.bin\webpack --version`  
+   `$ npx webpack --version`
