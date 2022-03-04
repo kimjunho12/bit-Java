@@ -5,10 +5,15 @@ const router = express.Router();
 
 module.exports = router;
 
-router.route('/01').get(function(res, resp) {
-    resp.writeHead(200, {
-        'Content-Type': 'text/html; charset="utf-8"'
-    });
+router.route('/01').get(function(req, res) {
+    res.render("hello/01");
+});
 
-    resp.end("<h1>/Hello/01</h1>");
+router.route('/02').get(function(req, res) {
+    const data = {
+        no: req.query.no || '',
+        email: req.query.email || ''
+    };
+
+    res.render("hello/02", data);
 })

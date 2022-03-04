@@ -2,6 +2,8 @@ const http = require("http");
 const path = require("path");
 const express = require("express");
 
+const mainRouter = require("./routes/main");
+const userRouter = require("./routes/user");
 const helloRouter = require("./routes/hello");
 
 const port = 9090;
@@ -14,6 +16,8 @@ const application = express()
     .use(express.urlencoded({ extended: true })) // application/x-www-form-urlencoded
     .use(express.json()) // application/json
     // 3. view engine
+    .set("views", path.join(__dirname, "views"))
+    .set('view engine', 'ejs')
     // 4. request router
     .all('*', function(req, res, next) { // default servlet 같은거 ????
         res.locals.req = req;
@@ -21,6 +25,8 @@ const application = express()
 
         next();
     })
+    .use("/", mainRouter)
+    .use("/user", userRouter)
     .use("/hello", helloRouter);
 
 // Server Setup
