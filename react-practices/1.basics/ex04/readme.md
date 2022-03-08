@@ -13,7 +13,7 @@ _애플리케이션 번들링 (bundling)_
    - test (Mocha, jest)
    - 난독화 / 압축 (Uglyfy)
    - 번들링  
-   <br>![](https://images.velog.io/images/98kimjh/post/3e95ae0d-11ee-4312-bacf-ffde7071a6bf/image.png)
+   <br>![bundling](https://camo.githubusercontent.com/dfbbf9c9a2767f0f6c10276994e142fee515f8ae791692c9b2d2f23231716472/68747470733a2f2f696d616765732e76656c6f672e696f2f696d616765732f39386b696d6a682f706f73742f33653935616530642d313165652d343331322d626163662d6666646537303731613662662f696d6167652e706e67)
    
    <br>
 4. 자바 스크립트 뚠만 아니라 다양한 에셋(image, css, font)들도 모듈로 취급
@@ -21,3 +21,5 @@ _애플리케이션 번들링 (bundling)_
    `$ npm i -D webpack webpack-cli`  
    `$ npm .\node_modules\.bin\webpack --version`  
    `$ npx webpack --version`
+6. package.json scripting ("build" stage)
+7. `$ npm start`
