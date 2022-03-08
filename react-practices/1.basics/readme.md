@@ -101,10 +101,10 @@ _번들링 : webpack_
 ### [ex05](./ex05/)
 _React API 기반의 애플리케이션 리팩토링_
 
-### ex06
+### [ex06](./ex06/)
 _React JSX 기반의 애플리케이션 리팩토링 /w babel(transpile)_
 
-### ex07
+### [ex07](./ex07/)
 _ex00.cra Reconfiguration (직접설정)_
 
 ### ex08
@@ -112,5 +112,5 @@ _JSX Tutorial_
 
 
 ### Appendices
-[webpack-practices](./)  
-[babel-practices](./)
+[webpack-practices](./webpack-practices/)  
+[babel-practices](./babel-practices/)
