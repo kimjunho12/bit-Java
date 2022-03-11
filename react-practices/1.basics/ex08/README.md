@@ -2,14 +2,14 @@ ___
 ## ex08
 _JSX Tutorial_
 
-> [01](./01/). 특징 1: HTML과 차이점  
-> [02](./02/). 특징 2: Single Root node   
-> [03](./03/). 함수 컴포넌트 만들기  
-> [04](./04/). Pure React(React API)로 컴포넌트 작성  
-> [05](./05/). 클래스 컴포넌트 만들기  
-> [06](./06/). 특징 3: JSX 표현식 표기법({js expression})과 문제점  
-> [07](./07/). Dynamic HTML Rendering 
-> [08](./08/). Comment 
+> [01](./src/01/). 특징 1: HTML과 차이점  
+> [02](./src/02/). 특징 2: Single Root node   
+> [03](./src/03/). 함수 컴포넌트 만들기  
+> [04](./src/04/). Pure React(React API)로 컴포넌트 작성  
+> [05](./src/05/). 클래스 컴포넌트 만들기  
+> [06](./src/06/). 특징 3: JSX 표현식 표기법({js expression})과 문제점  
+> [07](./src/07/). Dynamic HTML Rendering 
+> [08](./src/08/). Comment 
 
 1. 설치  
    `$ npm i -D webpack webpack-cli webpack-dev-server style-loader css-loader node-sass sass-loader babel-loader`  
