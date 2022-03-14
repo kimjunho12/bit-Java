@@ -19,7 +19,7 @@ ___
 > AJAX : fetch(ES6 표준), axios
 
 ### 예제
-- kanbanboard
+- [kanbanboard](../kanbanboard/)
 - emaillist  
 - gusetbook
 - gallery

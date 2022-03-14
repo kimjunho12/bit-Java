@@ -1,0 +1,18 @@
+{
+    "presets": [
+        ["@babel/preset-env", {
+            "targets": {
+                "ie" : "11",
+                "edge" : "89",
+                "firefox": "90",
+                "chrome": "90",
+                "opera": "76",
+                "safari": "15"
+            }
+        }],
+        "@babel/react"        // ["@babel/react", {}]
+    ],
+    "plugins": [
+
+    ]
+}
