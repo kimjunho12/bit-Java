@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-        "debug": "npx webpack serve --progress --mode development",
+        "debug": "npx webpack serve --progress --config config/webpack.config.js --mode development",
         "build": "npx webpack"
   },
   "author": "",
