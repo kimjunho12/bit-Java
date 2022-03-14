@@ -3,8 +3,11 @@ ___
 
 ### 01. Inline Styling
 ### 02. Normal CSS (css loader options : {module: false})
+- `$ npm run debug src=03 css-modules=false`
 ### 03. Normal CSS (css loader options : {module: true})
+- `$ npm run debug src=03 css-modules=true`
 ### 04. CSS Module (css loader options : {module: true})
+- `$ npm run debug src=03 css-modules=true`
 ### 05. SACC & SCSS
 ### 06. 
 ### 07. 
