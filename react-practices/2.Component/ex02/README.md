@@ -43,4 +43,4 @@ ___
    ```
 
 4. 실행  
-   `$ npm run debug src=00`
+   `$ npm run debug src={01|02|03|...} css-modules={[true]|false}` 
