@@ -1,7 +1,7 @@
 ___
 ## React Practices - Component
 
-### ex01 : Property
+### [ex01](./ex01/) : Property
 1. Component 작성법
 2. Data Flow : Top -> Down
 
