@@ -4,7 +4,7 @@
   "description": "Component Styling",
   "main": "index.js",
   "scripts": {
-        "debug": "npx webpack serve --progress --mode development --env",
+        "debug": "npx webpack serve --progress --config config/webpack.config.js --mode development --env",
         "build": "npx webpack"
   },
   "author": "",
