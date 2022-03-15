@@ -8,9 +8,10 @@ ___
 - `$ npm run debug src=03 css-modules=true`
 ### 04. CSS Module (css loader options : {module: true})
 - `$ npm run debug src=03 css-modules=true`
-### 05. SACC & SCSS
-### 06. 
-### 07. 
+### 05. SASS & SCSS (css loader options : {module: true})
+  > CSS in JS(Style Component), Less & Styleable
+### 06. Font Awesome : Working with UI I
+### 07. React Modal : Working with UI II
 ### 08. 
 
 ___
