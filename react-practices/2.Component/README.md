@@ -7,7 +7,7 @@ ___
 
 ### [ex02](./ex02/) : Component Styling
 
-### ex03 : React Event
+### [ex03](./ex03/) : React Event
 
 ### ex04 : State ***
 
