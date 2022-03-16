@@ -20,7 +20,15 @@ module.exports = function (env) {
         },
         {
           test: /\.(sa|sc|c)ss$/i,
-          use: ["style-loader", "css-loader", "sass-loader"],
+          use: [
+            "style-loader",
+            // "css-loader",
+            {
+              loader: "css-loader",
+              options: { modules: true },
+            },
+            "sass-loader",
+          ],
         },
         {
           test: /\.(png|gif|jpe?g|svg|ico|tiff?|bmp)$/i,

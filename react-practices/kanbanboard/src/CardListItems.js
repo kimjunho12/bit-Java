@@ -1,11 +1,13 @@
 import React from "react";
 import TaskList from "./TaskList";
 
+import styles from "./assets/css/Card.css";
+
 const CardListItems = ({ card }) => {
   return (
-    <div className="Card">
-      <div className="Card__Title">{card.title}</div>
-      <div className="Card__Details">
+    <div className={styles.Card}>
+      <div className={styles.Card__Title}>{card.title}</div>
+      <div className={styles.Card__Details}>
         {card.description}
 
         <div className="TaskList">
