@@ -20,6 +20,6 @@ ___
 
 ### 예제
 - [kanbanboard](../kanbanboard/)
-- emaillist  
+- [emaillist](../emaillist/)  
 - gusetbook
 - gallery
