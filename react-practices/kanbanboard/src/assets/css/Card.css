@@ -19,6 +19,6 @@
   width: 1em;
   content: "▸";
 }
-.Card__Title--is-open:before {
+.Card__Title__open:before {
   content: "▾";
 }
