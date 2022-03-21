@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-        "debug": "npx webpack serve --progress --config config/webpack.config.js --mode development",
-        "build": "npx webpack"
+    "debug": "npx webpack serve --progress --config config/webpack.config.js --mode development",
+    "build": "npx webpack"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +24,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
+    "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }
