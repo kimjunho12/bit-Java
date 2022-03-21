@@ -27,7 +27,7 @@ const CardListItems = ({ card }) => {
   return (
     <div className={styles.Card}>
       <div
-        className={isOpend ? styles.Card__Title : styles.Card__Title__open}
+        className={isOpend ? styles.Card__Title__open : styles.Card__Title}
         onClick={openClose}
       >
         {card.title}
