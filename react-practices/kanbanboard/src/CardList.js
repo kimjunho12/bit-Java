@@ -1,5 +1,6 @@
 import React from "react";
 import CardListItems from "./CardListItems";
+import { PropTypes } from "prop-types";
 
 import styles from "./assets/css/CardList.css";
 
@@ -12,6 +13,11 @@ const CardList = ({ cards, status }) => {
       ))}
     </div>
   );
+};
+
+CardList.propTypes = {
+  cards: PropTypes.arrayOf(PropTypes.shape(CardListItems.propTypes)).isRequired,
+  status: PropTypes.string.isRequired,
 };
 
 export default CardList;

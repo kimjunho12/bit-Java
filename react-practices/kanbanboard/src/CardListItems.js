@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TaskList from "./TaskList";
+import { PropTypes } from "prop-types";
 
 import styles from "./assets/css/Card.css";
 
@@ -35,6 +36,15 @@ const CardListItems = ({ card }) => {
       {isOpend ? openDiv : null}
     </div>
   );
+};
+
+CardListItems.propTypes = {
+  card: PropTypes.shape({
+    no: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    tasks: PropTypes.arrayOf(PropTypes.shape(TaskList.propTypes)),
+  }),
 };
 
 export default CardListItems;
