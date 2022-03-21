@@ -1,14 +1,22 @@
 import React from "react";
+import { PropTypes } from "prop-types";
+
 import styles from "./assets/scss/Email.scss";
 
-const Email = ({ email }) => {
+export default function Email({ emailitem }) {
   return (
     <li className={styles.Email}>
-      <h4>{email.firstName + email.lastName}</h4>
+      <h4>{emailitem.firstName + emailitem.lastName}</h4>
       <br />
-      <span>{email.email}</span>
+      <span>{emailitem.email}</span>
     </li>
   );
-};
+}
 
-export default Email;
+Email.propTypes = {
+  emailitem: PropTypes.shape({
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+  }),
+};
