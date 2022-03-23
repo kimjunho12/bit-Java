@@ -13,14 +13,30 @@ _Component - Lifecycle_
     1. getDerivedStateFromProps
     2. shouldComponentUpdate : props나 state을 변경 했을 때, 리렌더링 여부를 결정
     3. render
-    4. *componentDidUpdate : DOM 업데이트가 끝난 직후 호출, DOM 작업 가능
+    4. getSnapshotBeforeUpdate : 메소드 호출 후, DOM에 변화를 반영하기 직전에 호출 [react v16.3 +]
+    5. *componentDidUpdate : DOM 업데이트가 끝난 직후 호출, DOM 작업 가능
    
   - Lifecycle III : Unmount
     1. *componentWillUnmount : 컴포넌트를 DOM에서 제거하기 전
 
-  
-### 02 : Alternative : Function Component Lifecycle - useEffect Hook
+  - 예제
+    - src/01
 
+### 02 : Alternative : Function Component Lifecycle - useEffect Hook
+  - Alternative I : getDerivedStateFromProps
+  - After Rendering 함수 : (상태의 변화 -> 렌더링 -> 함수)
+  - 어떤 특정 상태의 변화에 반응하는 After Rendering 함수 : 관심의 분리
+  - Alternative II : componentDidMount & componentWillUnmount
+  - 예제
+    - src/02
+
+### 03 : Clock Component
+_Class Component Lifecycle 이용_  
+  - src/03
+
+### 04 : Clock Component
+_useEffect Hook 이용_  
+  - src/04
 ___
 
 1. 설치

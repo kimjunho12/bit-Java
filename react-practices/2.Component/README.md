@@ -11,7 +11,7 @@ ___
 
 ### [ex04](./ex04/) : State ***
 
-### ex05 : Component Lifecycle
+### [ex05](./ex05/) : Component Lifecycle
 
 ### ex06 : Immutability(불변성) of Component's State
 
