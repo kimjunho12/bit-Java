@@ -11,7 +11,7 @@ const App = () => {
   const [emails, setEmails] = useState(data);
 
   useEffect(async () => {
-    const response = await fetch("/api", {
+    const response = await fetch("http://localhost:8080/api", {
       method: "get",
       headers: {
         "Content-Type": "application/json",

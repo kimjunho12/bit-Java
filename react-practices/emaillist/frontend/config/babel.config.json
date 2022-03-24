@@ -13,6 +13,7 @@
         "@babel/react"        // ["@babel/react", {}]
     ],
     "plugins": [
-
+        "@babel/plugin-transform-runtime",
+        "@babel/plugin-syntax-throw-expressions"
     ]
 }

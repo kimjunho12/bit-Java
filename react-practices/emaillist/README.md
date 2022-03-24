@@ -1,5 +1,12 @@
 ## React Pracractices - Integration(개발 환경 통합)
 
+
+## emaillist
+   - 개발 통합 설정(with Spring Boot Backend)
+   - backend: Fully APIs
+   - Frontend: React(SPA)
+   - AJAX: fetch 기반
+
 ## Configuration
 1. Application(Project) Structure
    <pre>
@@ -24,9 +31,4 @@
 3. package.json
 4. concurrently
 
-emaillist
-    - 개발 통합 설정(with Spring Boot Backend)
-    - backend: Fully APIs
-    - Frontend: React(SPA)
-    - AJAX: fetch 기반
-    
+## Corps
