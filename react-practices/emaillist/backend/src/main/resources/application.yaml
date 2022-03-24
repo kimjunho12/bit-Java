@@ -14,7 +14,8 @@ spring:
          suffix: .jsp
 
       # Path pattern used for static resources
-      static-path-pattern: /assets/**
+      static-path-pattern: /assets/** # asset으로 들어오는 건 모두 static에서 찾는다
+      
 
       # Whether a "NoHandlerFoundException" should be thrown if no Handler was found to process a request
       throw-exception-if-no-handler-found: true

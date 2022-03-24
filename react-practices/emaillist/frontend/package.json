@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run build:frontend && npm run build:backend",
-    "build:frontend": "npx webpack",
+    "build:frontend": "npx webpack --config config/webpack.config.js --mode production",
     "build:backend": "cd ../backend && mvn clean package",
     "dev": "",
     "dev:frontend": "npx webpack serve --progress --config config/webpack.config.js --mode development",
