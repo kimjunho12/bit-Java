@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Emaillist from "./Emaillist";
 import RegisterForm from "./RegisterForm";
 import SearchBar from "./SearchBar";
@@ -9,6 +9,18 @@ import data from "./assets/json/data.json";
 
 const App = () => {
   const [emails, setEmails] = useState(data);
+
+  useEffect(async () => {
+    const response = await fetch("/api", {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: null,
+    });
+    console.log(response);
+  }, []);
 
   const notifyKeywordChange = (keyword) => {
     setEmails(
