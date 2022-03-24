@@ -69,9 +69,14 @@ ___
 3. npm 스크립팅
    ```jsonc
     "scripts": {
-        "debug": "npx webpack serve --progress --config config/webpack.config.js --mode development",
-        "build": "npx webpack"
-    }
+      "build": "npm run build:frontend && npm run build:backend",
+      "build:frontend": "npx webpack",
+      "build:backend": "cd ../backend && mvn clean package",
+      "dev": "",
+      "dev:frontend": "npx webpack serve --progress --config config/webpack.  config.js --mode development",
+      "dev:backend": "cd ../backend && mvn spring-boot:run"
+    },
    ```
 
 4. 실행  
+   `$ npm run [build | build:frontend | build:backend | dev | dev:frontend | dev:backend]`
