@@ -11,7 +11,7 @@ const App = () => {
   const [emails, setEmails] = useState(data);
 
   useEffect(async () => {
-    const response = await fetch("http://localhost:8080/api", {
+    const response = await fetch("/api", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -19,7 +19,19 @@ const App = () => {
       },
       body: null,
     });
-    console.log(response);
+    if (!response.ok) {
+      console.log("error:", response.status, response.statusText);
+      return;
+    }
+
+    const json = await response.json();
+
+    if (json.result !== "success") {
+      console.log("error:", json.message);
+      return;
+    }
+
+    setEmails(json.data);
   }, []);
 
   const notifyKeywordChange = (keyword) => {
