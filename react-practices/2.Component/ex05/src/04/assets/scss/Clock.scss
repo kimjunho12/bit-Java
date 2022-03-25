@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'digital-7';
+  src: url('../fonts/digital-7.ttf');
+}
+
+@media (max-width: 768px) {
+  :global(.clock-display) { padding: 15px 30px; }
+}
+
+@media (max-width: 550px) {
+  :global(.Clock) div p { font-size: 80px; }
+}
+
+@media (max-width: 468px) {
+  :global(.Clock) div p { font-size: 60px; }
+}
+
+@media (max-width: 400px) {
+  :global(.Clock) div p { font-size: 50px; }
+}
+
+@media (max-width: 350px) {
+  :global(.Clock) div p { font-size: 43px; }
+}
+
+@media (max-width: 320px) {
+  :global(.Clock) div p { font-size: 40px; }
+}
+
+:global(.clock-display) {
+  font-family: 'digital-7', sans-serif;
+  display: block;
+  text-align: center;
+  padding: 15px 30px;
+  border: solid 5px #ffffff;
+  border-radius: 10px;
+  width: 400px;
+  margin: 60px auto 0 auto;
+  background-color: #000000;
+  color: #ffffff;
+  box-shadow: 4px 4px 7px 4px rgba(0, 0, 0, .3);
+
+  :global(.Clock) {
+    margin: 5px 0;
+    display: flex;
+    justify-content: center;
+
+    div {
+      display: inline-block;
+      position: relative;
+
+      p {
+        font-size: 100px;
+        position: relative;
+        z-index: 100;
+      }
+    }
+  }
+}
