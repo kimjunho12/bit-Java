@@ -1,55 +1,65 @@
 # active spring boot profile
 spring:
-   profiles:
-      active: development
+  profiles:
+    active: development
 
 ---
 # common spring boot configuration
 spring:
-   mvc:
+  mvc:
+    # Path pattern used for static resources
+    static-path-pattern: /assets/** # asset으로 들어오는 건 모두 static에서 찾는다
 
-      # Spring MVC View Prefix/Suffix
-      view:
-         prefix: /WEB-INF/views/
-         suffix: .jsp
+    # Whether a "NoHandlerFoundException" should be thrown if no Handler was found to process a request
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      # Locations of static resources
+      static-locations: classpath:/static/
 
-      # Path pattern used for static resources
-      static-path-pattern: /assets/** # asset으로 들어오는 건 모두 static에서 찾는다
-      
+  thymeleaf:
+    prefix: classpath:templates/
+    check-template-location: true
+    mode: HTML5
+    suffix: .html
+    cache: false
 
-      # Whether a "NoHandlerFoundException" should be thrown if no Handler was found to process a request
-      throw-exception-if-no-handler-found: true
-   web:
-      resources:
-         # Locations of static resources
-         static-locations: classpath:/static/
+  # datasource
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/webdb?characterEncoding=utf8
+    username: webdb
+    password: webdb
 
-   thymeleaf:
-      prefix : classpath:templates/
-      check-template-location: true
-      mode: HTML5
-      suffix : .html
-      cache : false
+---
+# development profile: spring boot configuration
+spring:
+  config:
+    activate:
+      on-profile: development
 
-   # datasource
-   datasource:
-      driver-class-name: org.mariadb.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/webdb?characterEncoding=utf8
-      username: webdb
-      password: webdb
+  # devtools - live reload
+  devtools:
+    livereload:
+      enabled: true
 
 ---
 # mybatis
 mybatis:
-   config-location: classpath:mybatis/configuration.xml
-   
+  config-location: classpath:mybatis/configuration.xml
+
 ---
 # server
 server:
-   port: 8080
-   servlet:
-      context-path: /
-      encoding:
-         charset: UTF-8
-         enabled: true
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
 
+---
+# logging
+logging:
+  level:
+    root: WARN
