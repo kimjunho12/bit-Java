@@ -31,7 +31,7 @@ Commponent 데이터 전달
 
 1. 설치
     ```shell
-    $ npm i -D webpack webpack-cli webpack-dev-server style-loader css-loader node-sass sass-loader babel-loader @babel/core @babel/cli @babel/preset-env @babel/preset-react
+    $ npm i -D webpack webpack-cli webpack-dev-server style-loader css-loader node-sass sass-loader babel-loader @babel/core @babel/cli @babel/preset-env @babel/preset-react @babel/plugin-transform-runtime @babel/plugin-syntax-throw-expressions
     $ npm i react react-dom prop-types
     ```
 
@@ -65,10 +65,14 @@ Commponent 데이터 전달
 3. npm 스크립팅
    ```jsonc
     "scripts": {
-        "debug": "npx webpack serve --progress --config config/webpack.config.js --mode development",
-        "build": "npx webpack"
-    }
+      "build": "npm run build:frontend && npm run build:backend",
+      "build:frontend": "npx webpack",
+      "build:backend": "cd ../backend && mvn clean package",
+      "dev": "",
+      "dev:frontend": "npx webpack serve --progress --config config/webpack.  config.js --mode development",
+      "dev:backend": "cd ../backend && mvn spring-boot:run"
+    },
    ```
 
 4. 실행  
-   `$ npm run debug` 
+   `$ npm run [build | build:frontend | build:backend | dev | dev:frontend | dev:backend]`

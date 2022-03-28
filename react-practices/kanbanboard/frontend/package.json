@@ -4,17 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "debug": "npx webpack serve --progress --config config/webpack.config.js --mode development",
-    "build": "npx webpack"
+    "build": "npm run build:frontend && npm run build:backend",
+    "build:frontend": "npx webpack --config config/webpack.config.js --mode production",
+    "build:backend": "cd ../backend && mvn clean package",
+    "dev": "",
+    "dev:frontend": "npx webpack serve --progress --config config/webpack.config.js --mode development",
+    "dev:backend": "cd ../backend && mvn spring-boot:run"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.17.6",
-    "@babel/core": "^7.17.5",
+    "@babel/core": "^7.17.8",
+    "@babel/plugin-syntax-throw-expressions": "^7.16.7",
+    "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
-    "babel-loader": "^8.2.3",
+    "babel-loader": "^8.2.4",
     "css-loader": "^6.7.1",
     "node-sass": "^7.0.1",
     "sass-loader": "^12.6.0",
