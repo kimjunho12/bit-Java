@@ -46,7 +46,7 @@ const CardListItems = ({ card }) => {
       <div className="TaskList">
         <ul>
           {tasks?.map((task) => (
-            <TaskList key={task.no} tasks={task} />
+            <TaskList key={task.no} task={task} />
           ))}
         </ul>
       </div>

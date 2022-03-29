@@ -1,6 +1,8 @@
 package com.example.demo.repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.example.demo.vo.TaskVo;
 
@@ -16,5 +18,13 @@ public class TaskListRepository {
 
     public List<TaskVo> findAll(Long no) {
         return sqlSession.selectList("task.findAll", no);
+    }
+
+    public Integer updateStatus(Long no, String done) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("no", no);
+        map.put("done", done);
+
+        return sqlSession.update("task.updateStatus", map);
     }
 }

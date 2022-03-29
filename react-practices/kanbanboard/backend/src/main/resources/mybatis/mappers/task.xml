@@ -9,4 +9,11 @@
 	  	order by no desc
 	]]>
 	</select>
+	<update id="updateStatus" parameterType="map">
+	<![CDATA[
+		update task
+		set done=#{done}
+		where no=#{no}
+	]]>
+	</update>
 </mapper>
