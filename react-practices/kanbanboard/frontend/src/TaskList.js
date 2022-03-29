@@ -4,7 +4,7 @@ import { PropTypes } from "prop-types";
 import styles from "./assets/css/TaskList.css";
 
 const TaskList = ({ tasks }) => {
-  const [checked, setChecked] = useState(tasks.done);
+  const [checked, setChecked] = useState(tasks.done === "Y");
   const onChangeCheckBox = (e) => {
     setChecked(e.target.checked);
   };
@@ -23,7 +23,7 @@ TaskList.propTypes = {
   tasks: PropTypes.shape({
     no: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    done: PropTypes.bool.isRequired,
+    done: PropTypes.string.isRequired,
   }),
 };
 

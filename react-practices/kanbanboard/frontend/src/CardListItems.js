@@ -1,11 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TaskList from "./TaskList";
 import { PropTypes } from "prop-types";
 
 import styles from "./assets/css/Card.css";
 
 const CardListItems = ({ card }) => {
-  const [isOpend, setIsOpened] = useState(true);
+  const [isOpend, setIsOpened] = useState(false);
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(async () => {
+    try {
+      const response = await fetch("/api/task?cardNo=" + card.no, {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: null,
+      });
+
+      if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`);
+      }
+
+      const json = await response.json();
+
+      if (json.result !== "success") {
+        throw new Error(`${json.result} ${json.message}`);
+      }
+
+      setTasks(json.data);
+    } catch (err) {
+      console.error(err.message);
+    }
+  }, [isOpend]);
 
   const openClose = (e) => {
     setIsOpened(!isOpend);
@@ -17,7 +45,7 @@ const CardListItems = ({ card }) => {
 
       <div className="TaskList">
         <ul>
-          {card.tasks.map((task) => (
+          {tasks?.map((task) => (
             <TaskList key={task.no} tasks={task} />
           ))}
         </ul>
