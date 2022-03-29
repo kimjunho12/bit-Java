@@ -8,38 +8,21 @@ const CardListItems = ({ card }) => {
   const [isOpend, setIsOpened] = useState(false);
   const [tasks, setTasks] = useState([]);
 
-  useEffect(async () => {
-    try {
-      const response = await fetch("/api/task?cardNo=" + card.no, {
-        method: "get",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: null,
-      });
-
-      if (!response.ok) {
-        throw new Error(`${response.status} ${response.statusText}`);
-      }
-
-      const json = await response.json();
-
-      if (json.result !== "success") {
-        throw new Error(`${json.result} ${json.message}`);
-      }
-
-      setTasks(json.data);
-    } catch (err) {
-      console.error(err.message);
-    }
-  }, [isOpend]);
+  /** Card Open 시 Task 로딩 */
+  useEffect(
+    () =>
+      isOpend
+        ? null
+        : myFetch(`/api/task?cardNo=${card.no}`, "get", null, setTasks),
+    [isOpend]
+  );
 
   const openClose = (e) => {
     setIsOpened(!isOpend);
   };
 
-  const notifyAddTask = async (event) => {
+  /** Task 추가 */
+  const notifyAddTask = (event) => {
     if (event.key === "Enter") {
       const newTask = {
         name: event.target.value,
@@ -47,28 +30,7 @@ const CardListItems = ({ card }) => {
         cardNo: card.no,
       };
       event.target.value = null;
-      try {
-        const response = await fetch("/api/task/add", {
-          method: "post",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(newTask),
-        });
-
-        if (!response.ok) {
-          throw new Error(`${response.status} ${response.statusText}`);
-        }
-
-        const json = await response.json();
-
-        if (json.result !== "success") {
-          throw new Error(`${json.result} ${json.message}`);
-        }
-      } catch (err) {
-        console.error(err.message);
-      }
+      myFetch("/api/task/add", "post", JSON.stringify(newTask));
     }
   };
 
@@ -91,6 +53,34 @@ const CardListItems = ({ card }) => {
       </div>
     </div>
   );
+
+  /** 통신용 함수 */
+  const myFetch = async (url, method, body = null, setState = () => {}) => {
+    try {
+      const response = await fetch(`${url}`, {
+        method: `${method}`,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: body,
+      });
+
+      if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`);
+      }
+
+      const json = await response.json();
+
+      if (json.result !== "success") {
+        throw new Error(`${json.result} ${json.message}`);
+      }
+
+      setState(json.data);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
 
   return (
     <div className={styles.Card}>
