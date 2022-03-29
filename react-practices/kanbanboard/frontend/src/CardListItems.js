@@ -39,6 +39,39 @@ const CardListItems = ({ card }) => {
     setIsOpened(!isOpend);
   };
 
+  const notifyAddTask = async (event) => {
+    if (event.key === "Enter") {
+      const newTask = {
+        name: event.target.value,
+        done: "N",
+        cardNo: card.no,
+      };
+      event.target.value = null;
+      try {
+        const response = await fetch("/api/task/add", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(newTask),
+        });
+
+        if (!response.ok) {
+          throw new Error(`${response.status} ${response.statusText}`);
+        }
+
+        const json = await response.json();
+
+        if (json.result !== "success") {
+          throw new Error(`${json.result} ${json.message}`);
+        }
+      } catch (err) {
+        console.error(err.message);
+      }
+    }
+  };
+
   const openDiv = (
     <div className={styles.Card__Details}>
       {card.description}
@@ -48,6 +81,12 @@ const CardListItems = ({ card }) => {
           {tasks?.map((task) => (
             <TaskList key={task.no} task={task} />
           ))}
+          <input
+            type="text"
+            className={styles.TaskList__add_task}
+            placeholder={"Task 추가"}
+            onKeyPress={notifyAddTask}
+          />
         </ul>
       </div>
     </div>

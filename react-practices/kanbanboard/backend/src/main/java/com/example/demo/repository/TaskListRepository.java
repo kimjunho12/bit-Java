@@ -27,4 +27,8 @@ public class TaskListRepository {
 
         return sqlSession.update("task.updateStatus", map);
     }
+
+    public Integer addTask(TaskVo task) {
+        return sqlSession.insert("task.addTask", task);
+    }
 }

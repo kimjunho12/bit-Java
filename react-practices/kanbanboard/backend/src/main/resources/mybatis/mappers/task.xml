@@ -16,4 +16,9 @@
 		where no=#{no}
 	]]>
 	</update>
+	<insert id="addTask" parameterType="taskvo">
+	<![CDATA[
+		insert into task values(null, #{name}, #{done}, #{cardNo})
+	]]>
+	</insert>
 </mapper>
