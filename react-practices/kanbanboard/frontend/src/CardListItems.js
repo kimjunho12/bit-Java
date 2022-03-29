@@ -48,6 +48,13 @@ const CardListItems = ({ card }) => {
     myFetch(`/api/task/${task.no}?done=${checked ? "Y" : "N"}`, "put");
   };
 
+  /** Task 삭제 알림(callback) */
+  const notifyTaskDelete = (task) => {
+    const remainTasks = tasks.filter((t) => t.no !== task.no);
+    setTasks(remainTasks);
+    myFetch(`/api/task/${task.no}`, "delete");
+  };
+
   /** 열렸을 때의 View (Card detail) */
   const openDiv = (
     <div className={styles.Card__Details}>
@@ -60,6 +67,7 @@ const CardListItems = ({ card }) => {
               key={task.no}
               task={task}
               callback={notifyTaskStatusChange}
+              deleteCallback={notifyTaskDelete}
             />
           ))}
           <input

@@ -3,7 +3,7 @@ import { PropTypes } from "prop-types";
 
 import styles from "./assets/css/TaskList.css";
 
-const TaskList = ({ task, callback }) => {
+const TaskList = ({ task, callback, deleteCallback }) => {
   return (
     <li className={styles.TaskList__Task}>
       <input
@@ -13,7 +13,11 @@ const TaskList = ({ task, callback }) => {
       />
       {" " + task.name + " "}
       {/* <a href="#" className={styles["TaskList__Task--remove"]}></a> */}
-      <a href="#" className={styles["TaskList__Task__remove"]}></a>
+      <a
+        href="#"
+        onClick={() => deleteCallback(task)}
+        className={styles["TaskList__Task__remove"]}
+      ></a>
     </li>
   );
 };

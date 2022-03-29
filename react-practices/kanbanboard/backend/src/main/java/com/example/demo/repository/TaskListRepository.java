@@ -31,4 +31,8 @@ public class TaskListRepository {
     public Integer addTask(TaskVo task) {
         return sqlSession.insert("task.addTask", task);
     }
+
+    public Integer deleteTask(Long no) {
+        return sqlSession.delete("task.deleteTask", no);
+    }
 }

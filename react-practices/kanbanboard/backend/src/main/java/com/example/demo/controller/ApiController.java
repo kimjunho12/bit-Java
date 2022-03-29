@@ -8,6 +8,7 @@ import com.example.demo.vo.TaskVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,6 +45,11 @@ public class ApiController {
     @PostMapping(value = "/api/task/add")
     public ResponseEntity<JsonResult> add(@RequestBody TaskVo task) {
         return ResponseEntity.status(HttpStatus.OK).body(JsonResult.success(taskListRepository.addTask(task)));
+    }
+
+    @DeleteMapping(value = "/api/task/{no}")
+    public ResponseEntity<JsonResult> delete(@PathVariable("no") Long no) {
+        return ResponseEntity.status(HttpStatus.OK).body(JsonResult.success(taskListRepository.deleteTask(no)));
     }
 
 }
