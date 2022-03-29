@@ -25,15 +25,30 @@ const CardListItems = ({ card }) => {
   const notifyAddTask = (event) => {
     if (event.key === "Enter") {
       const newTask = {
+        no: tasks.length + 1,
         name: event.target.value,
         done: "N",
         cardNo: card.no,
       };
+      setTasks([newTask, ...tasks]);
       event.target.value = null;
       myFetch("/api/task/add", "post", JSON.stringify(newTask));
     }
   };
 
+  /** Task 상태(Done) 변화 */
+  const notifyTaskStatusChange = (task, checked) => {
+    const newTasks = tasks.map((t) => {
+      if (t.no === task.no) {
+        t.done = checked ? "Y" : "N";
+      }
+      return t;
+    });
+    setTasks(newTasks);
+    myFetch(`/api/task/${task.no}?done=${checked ? "Y" : "N"}`, "put");
+  };
+
+  /** 열렸을 때의 View (Card detail) */
   const openDiv = (
     <div className={styles.Card__Details}>
       {card.description}
@@ -41,7 +56,11 @@ const CardListItems = ({ card }) => {
       <div className="TaskList">
         <ul>
           {tasks?.map((task) => (
-            <TaskList key={task.no} task={task} />
+            <TaskList
+              key={task.no}
+              task={task}
+              callback={notifyTaskStatusChange}
+            />
           ))}
           <input
             type="text"
