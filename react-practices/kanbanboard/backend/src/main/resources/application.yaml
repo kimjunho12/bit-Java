@@ -43,10 +43,10 @@ spring:
     livereload:
       enabled: true
 
-#---
+---
 # mybatis
-#mybatis:
-#  config-location: classpath:mybatis/configuration.xml
+mybatis:
+  config-location: classpath:mybatis/configuration.xml
 
 ---
 # server
