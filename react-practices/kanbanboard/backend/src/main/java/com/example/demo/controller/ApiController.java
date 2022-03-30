@@ -44,7 +44,8 @@ public class ApiController {
 
     @PostMapping(value = "/api/task/add")
     public ResponseEntity<JsonResult> add(@RequestBody TaskVo task) {
-        return ResponseEntity.status(HttpStatus.OK).body(JsonResult.success(taskListRepository.addTask(task)));
+    	taskListRepository.addTask(task);
+        return ResponseEntity.status(HttpStatus.OK).body(JsonResult.success(task));
     }
 
     @DeleteMapping(value = "/api/task/{no}")

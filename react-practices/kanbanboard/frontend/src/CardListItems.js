@@ -30,9 +30,10 @@ const CardListItems = ({ card }) => {
         done: "N",
         cardNo: card.no,
       };
-      setTasks([newTask, ...tasks]);
       event.target.value = null;
-      myFetch("/api/task/add", "post", JSON.stringify(newTask));
+      myFetch("/api/task/add", "post", JSON.stringify(newTask)).then((result) =>
+        setTasks([result, ...tasks])
+      );
     }
   };
 
@@ -104,6 +105,7 @@ const CardListItems = ({ card }) => {
       }
 
       setState(json.data);
+      return json.data;
     } catch (err) {
       console.error(err.message);
     }

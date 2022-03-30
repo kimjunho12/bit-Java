@@ -9,7 +9,7 @@
 	  	order by no desc
 	]]>
 	</select>
-	
+
 	<update id="updateStatus" parameterType="map">
 	<![CDATA[
 		update task
@@ -22,6 +22,11 @@
 	<![CDATA[
 		insert into task values(null, #{name}, #{done}, #{cardNo})
 	]]>
+		<selectKey keyProperty="no" resultType="long" order="AFTER">
+		<![CDATA[
+			SELECT last_insert_id()	
+		]]>
+		</selectKey>
 	</insert>
 
 	<delete id="deleteTask" parameterType="long">
