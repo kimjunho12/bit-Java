@@ -1,0 +1,16 @@
+{
+  "name": "ex06",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "___\r ## Immutability\r _컴포넌트 상태의 불변성_",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react-addons-update": "^15.6.3"
+  }
+}
