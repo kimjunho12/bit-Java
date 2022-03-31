@@ -1,7 +1,7 @@
 ## React Practices - Routing
 
-### ex01: React Router Basic I: Implemented in a Simple Way(hashchange event driven)
-### ex02: React Router Basic II: HTML5 history API
+### [ex01](./src/01/App.js): React Router Basic I: Implemented in a Simple Way(hashchange event driven)
+### [ex02](./src/02/App.js): React Router Basic II: HTML5 history API
 ### ex03: React Router Basic III: HashRouter &amp; BrowserRouter
 ### ex04: React Router Basic V: Link VS NavLink
 ### ex05: Styling &amp; Semantic Markup
