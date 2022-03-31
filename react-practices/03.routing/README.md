@@ -4,7 +4,7 @@
 ### [ex02](./src/02/App.js): React Router Basic II: HTML5 history API
 ### [ex03](./src/03/App.js): React Router Basic III: HashRouter &amp; BrowserRouter
 ### [ex04](./src/04/App.js): React Router Basic V: Link VS NavLink
-### ex05: Styling &amp; Semantic Markup
+### [ex05](./src/05/App.js): Styling &amp; Semantic Markup
 ### ex06: Composition
 ### ex07: Nesting Routes
 ### ex08: BrowserRouter & SSR
