@@ -4,7 +4,7 @@ spring:
     active: development
 
 ---
-# common spring boot configuration
+# common configuration
 spring:
   mvc:
     # Path pattern used for static resources
@@ -31,8 +31,17 @@ spring:
     username: webdb
     password: webdb
 
+# mybatis
+mybatis:
+  config-location: classpath:mybatis/configuration.xml
+
+# logging
+logging:
+  level:
+    root: WARN
+
 ---
-# development profile: spring boot configuration
+# development configuration
 spring:
   config:
     activate:
@@ -43,12 +52,6 @@ spring:
     livereload:
       enabled: true
 
----
-# mybatis
-mybatis:
-  config-location: classpath:mybatis/configuration.xml
-
----
 # server
 server:
   port: 8080
@@ -59,7 +62,17 @@ server:
       enabled: true
 
 ---
-# logging
-logging:
-  level:
-    root: WARN
+# production configuration
+spring:
+  config:
+    activate:
+      on-profile: production
+
+# server
+server:
+  port: 8880
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
