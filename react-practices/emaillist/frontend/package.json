@@ -4,12 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build:frontend && npm run build:backend",
-    "build:frontend": "npx webpack --config config/webpack.config.js --mode production",
-    "build:backend": "cd ../backend && mvn clean package",
-    "dev": "",
-    "dev:frontend": "npx webpack serve --progress --config config/webpack.config.js --mode development",
-    "dev:backend": "cd ../backend && mvn spring-boot:run"
+    "build": "npm install && npx webpack --config config/webpack.config.js --mode production",
+    "start": "npx webpack serve --config config/webpack.config.js --progress --mode development"
   },
   "author": "",
   "license": "ISC",
