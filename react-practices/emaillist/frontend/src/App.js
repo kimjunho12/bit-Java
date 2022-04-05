@@ -10,7 +10,7 @@ const App = () => {
 
   useEffect(async () => {
     try {
-      const response = await fetch("/api", {
+      const response = await fetch("http://localhost:8080/api", {
         method: "get",
         headers: {
           "Content-Type": "application/json",
