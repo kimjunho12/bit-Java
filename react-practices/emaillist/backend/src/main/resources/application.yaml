@@ -1,7 +1,16 @@
 # active spring boot profile
 spring:
+  application:
+    name: emaillist
   profiles:
     active: development
+
+
+
+
+
+
+
 
 ---
 # common configuration
@@ -35,10 +44,13 @@ spring:
 mybatis:
   config-location: classpath:mybatis/configuration.xml
 
-# logging
-logging:
-  level:
-    root: WARN
+
+
+
+
+
+
+
 
 ---
 # development configuration
@@ -51,6 +63,13 @@ spring:
   devtools:
     livereload:
       enabled: true
+      
+  # datasource
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://192.168.0.67:3307/webdb?characterEncoding=utf8
+    username: webdb
+    password: webdb
 
 # server
 server:
@@ -61,12 +80,30 @@ server:
       charset: UTF-8
       enabled: true
 
+# logging
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n"
+  level:
+    root: WARN
+
+
+
+
+
 ---
 # production configuration
 spring:
   config:
     activate:
       on-profile: production
+
+  # datasource
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://192.168.0.67:3307/webdb?characterEncoding=utf8
+    username: webdb
+    password: webdb
 
 # server
 server:
@@ -76,3 +113,19 @@ server:
     encoding:
       charset: UTF-8
       enabled: true
+      
+logging:
+  pattern:
+    file: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n"
+  logback:
+    rollingpolicy:
+      file-name-pattern: "logs/${spring.application.name}.%d{yyyy-MM-dd}.%i.log.zip"
+  file:
+    name: logs/${spring.application.name}.log
+    max-history: 30
+  level:
+    root: INFO
+    com:
+       example:
+          demo:
+             exception: ERROR

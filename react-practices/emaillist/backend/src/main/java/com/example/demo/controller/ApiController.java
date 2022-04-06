@@ -15,6 +15,9 @@ import com.example.demo.dto.JsonResult;
 import com.example.demo.repository.EmaillistRepository;
 import com.example.demo.vo.EmaillistVo;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @CrossOrigin(origins = {"http://localhost:9090"}, allowedHeaders = "*", allowCredentials="false", methods={RequestMethod.GET} /*안써주면 Controller의 모든 방식, 써주면 그것 만*/)
 //@CrossOrigin(origins = "*", allowedHeaders = "*", allowCredentials="false") == @CrossOrigin
@@ -25,6 +28,8 @@ public class ApiController {
 	
 	@GetMapping("/api")
 	public ResponseEntity<JsonResult> read(@RequestParam(value="kw", required=true, defaultValue="") String keyword) {
+		log.info("Request [GET /api]");
+		
 		return ResponseEntity
 				.status(HttpStatus.OK)
 				.body(JsonResult.success(emaillistRepository.findAll(keyword)));
