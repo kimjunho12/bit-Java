@@ -5,13 +5,6 @@ spring:
   profiles:
     active: development
 
-
-
-
-
-
-
-
 ---
 # common configuration
 spring:
@@ -24,7 +17,7 @@ spring:
   web:
     resources:
       # Locations of static resources
-      static-locations: classpath:/static/
+      static-locations: classpath:/assets/
 
   thymeleaf:
     prefix: classpath:templates/
@@ -44,14 +37,6 @@ spring:
 mybatis:
   config-location: classpath:mybatis/configuration.xml
 
-
-
-
-
-
-
-
-
 ---
 # development configuration
 spring:
@@ -63,7 +48,7 @@ spring:
   devtools:
     livereload:
       enabled: true
-      
+
   # datasource
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
@@ -87,10 +72,6 @@ logging:
   level:
     root: WARN
 
-
-
-
-
 ---
 # production configuration
 spring:
@@ -113,7 +94,7 @@ server:
     encoding:
       charset: UTF-8
       enabled: true
-      
+
 logging:
   pattern:
     file: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n"
@@ -126,6 +107,6 @@ logging:
   level:
     root: INFO
     com:
-       example:
-          demo:
-             exception: ERROR
+      example:
+        demo:
+          exception: ERROR
