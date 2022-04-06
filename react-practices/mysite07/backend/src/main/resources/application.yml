@@ -1,114 +1,112 @@
 # active profile
 spring:
-   application:
-      name: mysite
-   profiles:
-      active: development
-      
+  application:
+    name: mysite
+  profiles:
+    active: development
+
 ---
 #
 # common configuration
 #
 spring:
-   mvc:
-      # path pattern used for static resources
-      static-path-pattern: /assets/**
+  mvc:
+    # path pattern used for static resources
+    static-path-pattern: /assets/**
 
-      # whether a "NoHandlerFoundException" should be thrown if no handler was found to process a request
-      throw-exception-if-no-handler-found: true
-      
-         
-   # template engine: thymeleaf    
-   thymeleaf:
-      prefix: classpath:templates/
-      check-template-location: true
-      mode: HTML
-      suffix: .html
-      cache: false
-   
-   # multipart uploads
-   servlet:
-      multipart:
-         enabled: true
-         max-file-size: 20MB
-         max-request-size: 100MB
+    # whether a "NoHandlerFoundException" should be thrown if no handler was found to process a request
+    throw-exception-if-no-handler-found: true
+
+  # template engine: thymeleaf
+  thymeleaf:
+    prefix: classpath:templates/
+    check-template-location: true
+    mode: HTML
+    suffix: .html
+    cache: false
+
+  # multipart uploads
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 100MB
 
 # mybatis
 mybatis:
-   config-location: classpath:mybatis/configuration.xml
-         
+  config-location: classpath:mybatis/configuration.xml
+
 ---
 #
 # development profile configuration
 #
 spring:
-   config:
-      activate:
-         on-profile: development
+  config:
+    activate:
+      on-profile: development
 
-   # devtools enabled
-   devtools:
-      livereload:
-         enabled: true
+  # devtools enabled
+  devtools:
+    livereload:
+      enabled: true
 
-   web:
-      resources:
-         # locations of static resources
-         static-locations: classpath:/static/, file:D:/upload-images/
+  web:
+    resources:
+      # locations of static resources
+      static-locations: classpath:/assets/, file:D:/upload-images/
 
-   # datasource
-   datasource:
-      driver-class-name: org.mariadb.jdbc.Driver
-      url: jdbc:mysql://192.168.0.67:3307/webdb?characterEncoding=utf8
-      username: webdb
-      password: webdb   
+  # datasource
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://192.168.0.67:3307/webdb?characterEncoding=utf8
+    username: webdb
+    password: webdb
 
 # server
 server:
-   port: 8080
-   servlet:
-      context-path: /
-      encoding:
-         charset: UTF-8
-         enabled: true
-         
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+
 # logging
 logging:
   pattern:
     console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n"
   level:
     root: WARN
-         
 
 ---
 #
 # production profile configuration
 #
 spring:
-   config:
-      activate:
-         on-profile: production
+  config:
+    activate:
+      on-profile: production
 
-   web:
-      resources:
-         # locations of static resources
-         static-locations: classpath:/static/, file:/upload-images/
-              
-   # datasource
-   datasource:
-      driver-class-name: org.mariadb.jdbc.Driver
-      url: jdbc:mysql://192.168.0.67:3307/webdb?characterEncoding=utf8
-      username: webdb
-      password: webdb   
-         
+  web:
+    resources:
+      # locations of static resources
+      static-locations: classpath:/assets/, file:/upload-images/
+
+  # datasource
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://192.168.0.67:3307/webdb?characterEncoding=utf8
+    username: webdb
+    password: webdb
+
 # server
 server:
-   port: 8881
-   servlet:
-      context-path: /
-      encoding:
-         charset: UTF-8
-         enabled: true
+  port: 8881
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
 
 logging:
   pattern:
@@ -122,6 +120,6 @@ logging:
   level:
     root: INFO
     com:
-       example:
-          demo:
-             exception: ERROR
+      example:
+        demo:
+          exception: ERROR
