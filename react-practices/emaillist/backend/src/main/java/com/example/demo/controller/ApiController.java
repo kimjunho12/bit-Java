@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.JsonResult;
@@ -37,6 +38,7 @@ public class ApiController {
 	}
 	
 	@PutMapping("/api")
+	@ResponseBody
 	public ResponseEntity<JsonResult> create(@RequestBody EmaillistVo vo) {
 		return ResponseEntity
 				.status(HttpStatus.OK)
