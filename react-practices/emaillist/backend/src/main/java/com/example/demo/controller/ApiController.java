@@ -19,8 +19,9 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@CrossOrigin(origins = {"http://localhost:9090"}, allowedHeaders = "*", allowCredentials="false", methods={RequestMethod.GET} /*안써주면 Controller의 모든 방식, 써주면 그것 만*/)
+//@CrossOrigin(origins = {"http://localhost:9090"}, allowedHeaders = "*", allowCredentials="false", methods={RequestMethod.GET} /*안써주면 Controller의 모든 방식, 써주면 그것 만*/)
 //@CrossOrigin(origins = "*", allowedHeaders = "*", allowCredentials="false") == @CrossOrigin
+@CrossOrigin
 public class ApiController {
 	
 	@Autowired
