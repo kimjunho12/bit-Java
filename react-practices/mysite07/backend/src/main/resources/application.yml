@@ -1,5 +1,7 @@
 # active profile
 spring:
+   application:
+      name: mysite
    profiles:
       active: development
       
@@ -14,10 +16,7 @@ spring:
 
       # whether a "NoHandlerFoundException" should be thrown if no handler was found to process a request
       throw-exception-if-no-handler-found: true
-   web:
-      resources:
-         # locations of static resources
-         static-locations: classpath:/static/, file:D:/upload-images/
+      
          
    # template engine: thymeleaf    
    thymeleaf:
@@ -37,11 +36,6 @@ spring:
 # mybatis
 mybatis:
    config-location: classpath:mybatis/configuration.xml
-
-# logging
-logging:
-   level:
-      root: INFO
          
 ---
 #
@@ -56,6 +50,11 @@ spring:
    devtools:
       livereload:
          enabled: true
+
+   web:
+      resources:
+         # locations of static resources
+         static-locations: classpath:/static/, file:D:/upload-images/
 
    # datasource
    datasource:
@@ -73,6 +72,13 @@ server:
          charset: UTF-8
          enabled: true
          
+# logging
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n"
+  level:
+    root: WARN
+         
 
 ---
 #
@@ -82,6 +88,11 @@ spring:
    config:
       activate:
          on-profile: production
+
+   web:
+      resources:
+         # locations of static resources
+         static-locations: classpath:/static/, file:/upload-images/
               
    # datasource
    datasource:
@@ -92,9 +103,25 @@ spring:
          
 # server
 server:
-   port: 8882
+   port: 8881
    servlet:
       context-path: /
       encoding:
          charset: UTF-8
          enabled: true
+
+logging:
+  pattern:
+    file: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n"
+  logback:
+    rollingpolicy:
+      file-name-pattern: "logs/${spring.application.name}.%d{yyyy-MM-dd}.%i.log.zip"
+  file:
+    name: logs/${spring.application.name}.log
+    max-history: 30
+  level:
+    root: INFO
+    com:
+       example:
+          demo:
+             exception: ERROR
